@@ -11,11 +11,11 @@
 #include "BoxButton.h"
 #include "ScoreTableButton.h"
 
-
 class GameControler:
 {
 public:
 	GameControler();
+	void run();
 	void displayMenu();
 	/*void startGame();
 	void chooseBoxShip();
@@ -25,11 +25,13 @@ public:
 	Menu& getMenu();*/
 
 private:
-	//sf::RenderWindow m_window;
+	sf::Sprite& m_background;
+	sf::RenderWindow m_window;
 	//Resources& m_resource = Resources::instance();
-	//Menu m_menu;
+	Menu m_menu;
 	//Board m_board;
-	//sf::View m_gameView;
+	Resources m_resources;
+	sf::View m_gameView;
 	//bool m_game_over = false;
 	//sf::Clock m_game_clock;
 	////private functions

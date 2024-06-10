@@ -6,7 +6,7 @@ int main()
     try
     {
         GameControler game;
-        game.displayMenu();
+        game.run();
     }
     catch (std::exception& e)
     {
