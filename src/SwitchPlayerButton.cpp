@@ -1,11 +1,12 @@
 #pragma once
 
 #include "SwitchPlayerButton.h"
-#include "Game.h"
-#include "WithoutYouButton.h"
-#include "GreyhoundButton.h"
-#include "OnlyTheHorsesButton.h"
-#include "SpectreButton.h"
+#include "GameControler.h"
+//#include "WithoutYouButton.h"
+//#include "GreyhoundButton.h"
+//#include "OnlyTheHorsesButton.h"
+//#include "SpectreButton.h"
+
 
 
 SwitchPlayerButton::SwitchPlayerButton(GameControler* game, sf::RenderWindow& window)

@@ -1,11 +1,12 @@
 #pragma once
 
 #include "HelpButton.h"
-#include "Game.h"
-#include "WithoutYouButton.h"
-#include "GreyhoundButton.h"
-#include "OnlyTheHorsesButton.h"
-#include "SpectreButton.h"
+#include "GameControler.h"
+
+//#include "WithoutYouButton.h"
+//#include "GreyhoundButton.h"
+//#include "OnlyTheHorsesButton.h"
+//#include "SpectreButton.h"
 
 
 HelpButton::HelpButton(GameControler* game, sf::RenderWindow& window)

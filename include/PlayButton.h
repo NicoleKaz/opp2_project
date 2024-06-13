@@ -14,7 +14,7 @@ public:
 	void execute() override;
 
 private:
-	//LevelsMenu m_levels_menu;
+	//LevelsMenu m_levels	_menu;
 	GameControler* m_game;
 	//sf::RenderWindow& m_window;
 };

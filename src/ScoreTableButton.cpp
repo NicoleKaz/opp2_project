@@ -1,11 +1,11 @@
 #pragma once
 
 #include "ScoreTableButton.h"
-#include "Game.h"
-#include "WithoutYouButton.h"
-#include "GreyhoundButton.h"
-#include "OnlyTheHorsesButton.h"
-#include "SpectreButton.h"
+#include "GameControler.h"
+//#include "WithoutYouButton.h"
+//#include "GreyhoundButton.h"
+//#include "OnlyTheHorsesButton.h"
+//#include "SpectreButton.h"
 
 
 ScoreTableButton::ScoreTableButton(GameControler* game, sf::RenderWindow& window)

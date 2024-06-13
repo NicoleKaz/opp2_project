@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+//#include <SFML/Audio.hpp>
 #include <string.h>
 #include <vector>
 
@@ -28,7 +28,7 @@ enum GameTextures {
 
 
 //consts
-const int MENU_BUTTONS = 6;
+const int MENU_BUTTONS = 5;
 const int INSTRUCTIONS = 1;
 const int GAME_OBJECTS = 9;
 const int TOOL_BAR = 5;
@@ -56,6 +56,7 @@ public:
 		t_Total
 	};
 
+
 	~Resources();
 	Resources(); //private so there will be no duplicates
 	Resources(const Resources&) = default;
@@ -78,21 +79,21 @@ private:
 
 	sf::Font m_font;
 	sf::CircleShape player;
-	sf::Sound m_sound;
-	sf::Music m_music;
-	sf::Texture m_ButtonTextures[BUTTONS];
+	//sf::Sound m_sound;
+//	sf::Music m_music;
+	sf::Texture m_ButtonTextures[MENU_BUTTONS];
 	sf::Texture m_InstructionsTextures[INSTRUCTIONS];
 	sf::Texture m_game_textures[GAME_TEXTURES];
 
 
 	std::vector<sf::Texture> m_textureVec;
 	std::vector<sf::Texture> m_MenuTexture;
-	std::vector<sf::SoundBuffer> m_soundVector;
-	std::vector<sf::Music> m_musicVector;
-	std::string m_ButtonFiles[BUTTONS] = { "Play.png", "Help.png", "Exit.png" , "VideoPlay.png" , "Back.png" };
+	//std::vector<sf::SoundBuffer> m_soundVector;
+//	std::vector<sf::Music> m_musicVector;
+	/*std::string m_ButtonFiles[BUTTONS] = { "Play.png", "Help.png", "Exit.png" , "VideoPlay.png" , "Back.png" };
 	std::string m_MusicFiles[MUSIC] = { "Song.wav","5_second_end.wav" };
 	std::string m_InstructionFiles[INSTRUCTIONS] = { "GameRules.png" };
 	std::string m_SoundFiles[SOUNDS] = { "Click.ogg", "MinusLife.ogg", "Eat.ogg", "ClockSound.ogg",
 									"DoorSound.ogg" , "FreezeSound.ogg" ,
-									 "KeySound.ogg" , "GameOver.ogg","win.ogg", "ExtraLifeSound.ogg" };
+									 "KeySound.ogg" , "GameOver.ogg","win.ogg", "ExtraLifeSound.ogg" };*/
 };

@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 #include <vector>
-#include "Resources.h"
+#include "Resources.h"/*
 #include "MovingObject.h"
 #include "StaticObject.h"
 #include "Player.h"
@@ -13,7 +13,7 @@
 #include "Spike.h"
 #include "Jumper.h"
 #include "MyContactListener.h"
-#include "Enemy.h"
+#include "Enemy.h"*/
 
 class Board
 {
@@ -31,7 +31,7 @@ public:
     void spaceReleased() const;
     void changeBoxShip(const std::pair<GameTextures, GameTextures>);
     void handleCollision();
-    void createLevel(const GameMaps, const GameSounds);
+    //void createLevel(const GameMaps, const GameSounds);
     const bool isWin() const;
     const int getCoins() const;
     void resetBoard();
@@ -40,17 +40,17 @@ public:
 private:
     sf::RenderWindow& m_window;
     b2Vec2 m_gravity;
-    b2World m_world;
+   // b2World m_world;
     std::pair<GameTextures, GameTextures> m_player_textures;
 
     //game objects:
-    std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;
-    std::vector < std::unique_ptr< StaticObject>>  m_static_objects;
+    //std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;
+    //std::vector < std::unique_ptr< StaticObject>>  m_static_objects;
 
     sf::Sprite m_background;
-    Player* m_player = nullptr;
+    //Player* m_player = nullptr;
     sf::Vector2f m_player_location;
-    MyContactListener m_contact;
+    //MyContactListener m_contact;
     bool m_win = false;
-    sf::Sound m_game_song;
+//    sf::Sound m_game_song;
 };

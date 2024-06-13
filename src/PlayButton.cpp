@@ -1,11 +1,11 @@
 #pragma once
 
 #include "PlayButton.h"
-#include "Game.h"
-#include "WithoutYouButton.h"
-#include "GreyhoundButton.h"
-#include "OnlyTheHorsesButton.h"
-#include "SpectreButton.h"
+#include "GameControler.h"
+//#include "WithoutYouButton.h"
+//#include "GreyhoundButton.h"
+//#include "OnlyTheHorsesButton.h"
+//#include "SpectreButton.h"
 
 
 PlayButton::PlayButton(GameControler* game,  sf::RenderWindow& window)
@@ -22,6 +22,7 @@ void PlayButton::execute()
 {
     // כאשר לוחצים על כפתור המשחק, הפונקציה תבצע את הפעולות הנדרשות להתחלת המשחק
     m_game->startGame();
+		
 }
 
 

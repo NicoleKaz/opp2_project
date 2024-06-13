@@ -1,4 +1,6 @@
 #include "GameControler.h"
+#include <thread>
+#include <chrono>
 
 
 GameControler::GameControler()
@@ -32,38 +34,39 @@ void GameControler::run()
         m_background.scale(sf::Vector2f(2.35f, 1.35f));
         m_window.clear(sf::Color::Color(0, 0, 0));
         m_window.draw(m_background);
-        drawMenu();
+        m_menu.drawMenu();
         m_window.display();
+        std::this_thread::sleep_for(std::chrono::seconds(5));
 
-        //event from user mouse
-        if (auto event = sf::Event{}; m_window.waitEvent(event))
-        {
-            switch (event.type)
-            {
-            case sf::Event::Closed: //closes the window from the console
-                m_window.close();
-                break;
+        ////event from user mouse
+        //if (auto event = sf::Event{}; m_window.waitEvent(event))
+        //{
+        //    switch (event.type)
+        //    {
+        //    case sf::Event::Closed: //closes the window from the console
+        //        m_window.close();
+        //        break;
 
-            case sf::Event::MouseButtonReleased: //where was preesed
-            {
-                auto location = m_window.mapPixelToCoords(
-                    { event.mouseButton.x, event.mouseButton.y });
-                handleClick(location, music, musicEnd);
-                break;
-            }
+        //    case sf::Event::MouseButtonReleased: //where was preesed
+        //    {
+        //        auto location = m_window.mapPixelToCoords(
+        //            { event.mouseButton.x, event.mouseButton.y });
+        //        handleClick(location, music, musicEnd);
+        //        break;
+        //    }
 
-            case sf::Event::MouseMoved: //shadow 
-            {
-                auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
-                handleMouseMoved(location, PLAY, EXIT);
-            }
-            }
-        }
-        //exit from the window 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        {
-            m_window.close();
-        }
+        //    case sf::Event::MouseMoved: //shadow 
+        //    {
+        //        auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
+        //        handleMouseMoved(location, PLAY, EXIT);
+        //    }
+        //    }
+        //}
+        ////exit from the window 
+        //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        //{
+        //    m_window.close();
+        //}
     }
 }
 

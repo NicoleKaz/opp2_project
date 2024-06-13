@@ -22,6 +22,7 @@ public:
 	void displayRules();
 	void add(const Button button, std::unique_ptr<Command> command);
 	sf::Sprite& getBackground() { return m_background; }
+	void drawMenu()const;
 
 	const std::pair<GameTextures, GameTextures> getPlayerTextures() const;
 
@@ -42,16 +43,12 @@ private:
 	std::vector<option> m_options;
 
 
-
-
-
-	sf::Sprite m_buttons[MENU_BUTTONS];
 	sf::Sprite m_back_buttons[MENU_BUTTONS];
-	sf::Sprite m_instructions[MENU_INSTRUCTIONS];
-	sf::Sprite m_box_ships[MENU_BOX_SHIPS];
-	sf::RectangleShape m_box_ships_rect[MENU_BOX_SHIPS];
+	//sf::Sprite m_instructions[MENU_INSTRUCTIONS];
+	//sf::Sprite m_box_ships[MENU_BOX_SHIPS];
+	//sf::RectangleShape m_box_ships_rect[MENU_BOX_SHIPS];
 	sf::Text m_box_ship_text;
 	MenuBoxShips m_box_ship;
-	sf::Sound m_menu_sound;
+//	sf::Sound m_menu_sound;
 
 };

@@ -7,7 +7,6 @@ Menu::Menu(sf::RenderWindow& window)
 {
 	//beckground sprite
 	m_background.setTexture(Resources::instance().getMenuTexture(menuBackground));
-	m_background.scale(1.6f, 1.6f);
 
 	//the menu buttunes
 	for (int button = PLAY; button <= EXIT; button++)
@@ -70,6 +69,18 @@ void Menu::add(const Button button, std::unique_ptr<Command> command)
 	m_options.push_back(std::make_pair(m_buttons[button], std::move(command)));
 	
 }
+
+void Menu::drawMenu() const
+{
+	m_window.draw(m_background);
+
+	for (const auto& option : m_options)
+	{
+		m_window.draw(option.first);
+	}
+	//m_window.draw(m_title);
+}
+
 
 //this function set the position 
 void Menu::setPosition()

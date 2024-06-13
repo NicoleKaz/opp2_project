@@ -1,9 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+//#include <SFML/Audio.hpp>
 #include <Resources.h>
-#include <GameControler.h>
 
 class GameControler;
 
