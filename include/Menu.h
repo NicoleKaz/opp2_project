@@ -19,6 +19,7 @@ public:
 	void buttonPress(const Button button);
 	void displayRules();
 	sf::Sprite& getBackground() { return m_background; }
+	const std::pair<GameTextures, GameTextures> getPlayerTextures() const;
 
 
 private:

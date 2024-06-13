@@ -89,3 +89,8 @@ sf::Texture& Resources::GetInstruction(Instructions instruction)
 {
 	return m_InstructionsTextures[instruction];
 }
+
+const sf::Texture& Resources::getGameTexture(const GameTextures texture) const
+{
+	return m_game_textures[texture];
+}
