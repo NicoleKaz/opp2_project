@@ -12,19 +12,18 @@ GameControler::GameControler()
 
 
     ////adding menu buttons:
-    //m_menu.add(Play, std::make_unique<PlayButton>(this, m_window));
-    //m_menu.add(Help, std::make_unique<HelpButton>(this, m_window));
-    //m_menu.add(Box, std::make_unique<BoxButton>(this, m_window));
-    //m_menu.add(Score_Table, std::make_unique<ScoreTableButton>(this, m_window));
+    m_menu.add(PLAY, std::make_unique<PlayButton>(this, m_window));
+    m_menu.add(HELP, std::make_unique<HelpButton>(this, m_window));
+    m_menu.add(SWITCH_PLAYER, std::make_unique<SwitchPlayerButton>(this, m_window));
+    m_menu.add(SCORE_TABLE, std::make_unique<ScoreTableButton>(this, m_window));
 };
+
+//PLAY, HELP, SCORE_TABLE, BACK, VIDEO_PLAY, EXIT
 
 
 //this function is the game loop
 void GameControler::run()
 {
-    //loadMusic();
-    //music.play();
-    //game loop
 
     while (m_window.isOpen())
     {
@@ -66,5 +65,19 @@ void GameControler::run()
             m_window.close();
         }
     }
+}
+
+void GameControler::startGame()
+{
+
+}
+
+void GameControler::helpGame()
+{
+
+}
+
+void GameControler::SwitchPlayer()
+{
 }
 

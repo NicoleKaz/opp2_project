@@ -8,7 +8,7 @@
 #include "ScoreTable.h"
 #include "HelpButton.h"
 #include "PlayButton.h"
-#include "BoxButton.h"
+#include "SwitchPlayerButton.h"
 #include "ScoreTableButton.h"
 
 class GameControler
@@ -23,8 +23,12 @@ public:
 	void handleBoxShipMouseMoved(const sf::Vector2f);
 	Board& getBoard();
 	Menu& getMenu();*/
+	void startGame();
+	void helpGame();
+	void SwitchPlayer();
 
-private:
+
+private:	
 	//sf::Sprite& m_background;
 	sf::RenderWindow m_window;
 	//Resources& m_resource = Resources::instance();

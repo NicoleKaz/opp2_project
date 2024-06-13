@@ -7,7 +7,8 @@
 
 //enum
 enum Instructions { GAME_RULES };
-enum Button { PLAY, HELP, SCORE_TABLE, BACK, VIDEO_PLAY, EXIT };
+enum Button { PLAY, HELP, SWITCH_PLAYER, SCORE_TABLE, EXIT };
+enum ButtonHelp {BACK, VIDEO_PLAY};
 enum Direction { Up, Down, Right, Left, Stay };
 enum ToolBarWord { LIFE, SCORE, LEVEL, TIME, KEYCOUNTER };
 enum Sound { CLICK, MINUS_LIFE, EAT, CLOCK_SOUND, DOOR_SOUND, FREEZE_SOUND, KEY_SOUND, GAME_OVER, WIN, EXTRA_LIFE };
