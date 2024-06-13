@@ -63,6 +63,14 @@ void Menu::displayRules()
 	m_instructionsPage[GAME_RULES].setColor(sf::Color::Color(255, 255, 255, 255));
 }
 
+//adding new button to the menu
+void Menu::add(const Button button, std::unique_ptr<Command> command)
+{
+
+	m_options.push_back(std::make_pair(m_buttons[button], std::move(command)));
+	
+}
+
 //this function set the position 
 void Menu::setPosition()
 {

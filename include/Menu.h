@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "Resources.h"
+#include "Command.h"
+
 
 
 class Menu
@@ -18,7 +20,9 @@ public:
 	void buttonRelease(const Button button);
 	void buttonPress(const Button button);
 	void displayRules();
+	void add(const Button button, std::unique_ptr<Command> command);
 	sf::Sprite& getBackground() { return m_background; }
+
 	const std::pair<GameTextures, GameTextures> getPlayerTextures() const;
 
 
@@ -33,6 +37,9 @@ private:
 	sf::Sprite m_buttons[MENU_BUTTONS];
 	sf::Sprite m_instructionsPage[INSTRUCTIONS];
 	void setPosition();
+
+	typedef std::pair<const sf::Sprite, std::unique_ptr<Command>> option;
+	std::vector<option> m_options;
 
 
 
