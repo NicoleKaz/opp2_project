@@ -76,14 +76,14 @@ void Menu::add(const Button button, std::unique_ptr<Command> command)
 }
 
 //draw the game menu
-void Menu::drawMenu(sf::RenderWindow& window)const
+void Menu::drawMenu()const
 {
-	window.draw(m_background);
+	m_window.draw(m_background);
 	for (const auto& option : m_options)
 	{
-		window.draw(option.first);
+		m_window.draw(option.first);
 	}
-	window.draw(m_title);
+	m_window.draw(m_title);
 }
 
 void Menu::action(const sf::Vector2f& location) const

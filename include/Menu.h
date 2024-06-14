@@ -22,7 +22,7 @@ public:
 	void buttonPress(const Button button);
 	void displayRules();
 	void add(const Button button, std::unique_ptr<Command> command);
-	void drawMenu(sf::RenderWindow&)const;
+	void drawMenu()const;
 
 	void action(const sf::Vector2f& location) const;
 

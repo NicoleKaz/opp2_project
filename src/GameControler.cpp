@@ -33,7 +33,7 @@ void GameControler::run()
     {
         //display the first window 
         m_window.clear(sf::Color::Color(0, 0, 0));
-        m_menu.drawMenu(m_window);
+        m_menu.drawMenu();
         m_window.display();
         //std::this_thread::sleep_for(std::chrono::seconds(5));
 
