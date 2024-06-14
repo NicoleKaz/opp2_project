@@ -1,6 +1,4 @@
 #include "GameControler.h"
-#include <thread>
-#include <chrono>
 
 
 GameControler::GameControler()
@@ -12,8 +10,7 @@ GameControler::GameControler()
     m_gameView.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     m_gameView.setCenter(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
 
-
-    ////adding menu buttons:
+    //adding menu buttons:
     m_menu.add(PLAY, std::make_unique<PlayButton>(this, m_window));
     m_menu.add(HELP, std::make_unique<HelpButton>(this, m_window));
     m_menu.add(SWITCH_PLAYER, std::make_unique<SwitchPlayerButton>(this, m_window));
@@ -26,53 +23,98 @@ GameControler::GameControler()
 //this function is the game loop
 void GameControler::run()
 {
-
+    m_GameClock.restart();
     while (m_window.isOpen())
     {
         //display the first window 
-        /*sf::Sprite& m_background = m_menu.getBackground();
-        m_background.scale(sf::Vector2f(2.35f, 1.35f));*/
         m_window.clear(sf::Color::Color(0, 0, 0));
-        //m_window.draw(m_background);
-        m_menu.drawMenu();
+        m_menu.drawMenu(this->m_window);
         m_window.display();
-        std::this_thread::sleep_for(std::chrono::seconds(5));
+        float deltaTime = m_GameClock.restart().asSeconds();
+        //event from user mouse
+        if (auto event = sf::Event{}; m_window.waitEvent(event))
+        {
+            switch (event.type)
+            {
+            case sf::Event::Closed: //closes the window from the console
+                m_window.close();
+                break;
 
-        ////event from user mouse
-        //if (auto event = sf::Event{}; m_window.waitEvent(event))
-        //{
-        //    switch (event.type)
-        //    {
-        //    case sf::Event::Closed: //closes the window from the console
-        //        m_window.close();
-        //        break;
+            case sf::Event::MouseButtonReleased: //where was preesed
+            {
+                auto location = m_window.mapPixelToCoords(
+                    { event.mouseButton.x, event.mouseButton.y });
+                handleClick(location);
+                break;
+            }
+            case sf::Event::MouseMoved: //shadow 
+            {
+                auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
+                handleMenuMouseMoved(location);
+            }
+            }
+        }
+        //exit from the window 
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        {
+            m_window.close();
+        }
+    }
+}
 
-        //    case sf::Event::MouseButtonReleased: //where was preesed
-        //    {
-        //        auto location = m_window.mapPixelToCoords(
-        //            { event.mouseButton.x, event.mouseButton.y });
-        //        handleClick(location, music, musicEnd);
-        //        break;
-        //    }
+//This function checks whether one of the buttons in menu has been pressed
+void GameControler::handleMenuMouseMoved(const sf::Vector2f location)
+{
+    //loop to go over the buttons
+    for (int button = PLAY; button <= EXIT; button++)
+    {
+        //check if a button preesed
+        if ((m_menu.getButton((Button)button).getGlobalBounds().contains(location)))
+        {
+            m_menu.ButtonPress((Button)button);
+        }
+        else
+        {
+            m_menu.ButtonRelease((Button)button);
+        }
+    }
+}
 
-        //    case sf::Event::MouseMoved: //shadow 
-        //    {
-        //        auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
-        //        handleMouseMoved(location, PLAY, EXIT);
-        //    }
-        //    }
-        //}
-        ////exit from the window 
-        //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        //{
-        //    m_window.close();
-        //}
+
+//This function performs the action that is called after the user clicks one of the buttons in the menu
+void GameControler::handleClick(const sf::Vector2f location)
+{
+    //start the game
+    if (m_menu.getButton(PLAY).getGlobalBounds().contains(location))
+    {
+        //rest the clocks
+        //m_MoveClock.restart();
+        //open the game window
+        //init();
+        m_GameClock.restart();
+        startGame();
+    }
+    //exit the game
+    if (m_menu.getButton(EXIT).getGlobalBounds().contains(location))
+    {
+        m_window.close();
     }
 }
 
 void GameControler::startGame()
 {
-
+    //As long as the user did not exit the game, this loop ran
+    while (m_window.isOpen())
+    {
+        m_window.clear(sf::Color::Color(0, 0, 0));
+        //Drawing the game board
+        m_board.drawBoard(this->m_window);
+        //Exit the game
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        {
+            m_window.close();
+        }
+    }
 }
 
 void GameControler::helpGame()
@@ -87,6 +129,5 @@ void GameControler::SwitchPlayer()
 void GameControler::quitGame()
 {
 	m_window.close();
-
 }
 

@@ -10,3 +10,21 @@ Board::Board(sf::RenderWindow& window, const std::pair<GameTextures, GameTexture
     m_background.setColor(sf::Color::White);
     //m_world.SetContactListener(&m_contact); //for the override function
 }
+
+
+//This function draws the board
+void Board::drawBoard(sf::RenderWindow& window)
+{
+	//Delete everything that was in the window until now
+	window.clear(sf::Color::Color(210, 210, 210));
+	//Draw 
+	//for (int stick = 0; stick < m_stick.size(); stick++)
+	//{
+	//	window.draw(m_stick[stick]->getrec());
+	//}
+	////Draw the franme of the buttons
+	//for (int rectangle = 0; rectangle < 4; rectangle++)
+	//{
+	//	window.draw(m_grid_frame[rectangle]);
+	//}
+}

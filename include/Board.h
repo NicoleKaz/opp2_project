@@ -20,7 +20,8 @@ class Board
 public:
     Board();
     Board(sf::RenderWindow&, const std::pair<GameTextures,GameTextures>);
-    void drawBoard() const;
+    //void drawBoard() const;
+    void drawBoard(sf::RenderWindow&);
     void moveObjects();
     const b2Vec2 getPlayerPosition() const;
     void viewBackground(const float addition);

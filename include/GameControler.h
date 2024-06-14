@@ -2,14 +2,16 @@
 #include <SFML/Graphics.hpp>
 //#include <SFML/Audio.hpp>
 #include <Box2D/Box2D.h>
-#include "Resources.h"
-#include "Board.h"
-#include "Menu.h"
-#include "HelpButton.h"
-#include "PlayButton.h"
+#include <sstream>
+#include <iomanip>
 #include "SwitchPlayerButton.h"
 #include "ScoreTableButton.h"
-#include <ExitGame.h>
+#include "Resources.h"
+#include "HelpButton.h"
+#include "PlayButton.h"
+#include "ExitGame.h"
+#include "Board.h"
+#include "Menu.h"
 
 
 class GameControler
@@ -17,13 +19,14 @@ class GameControler
 public:
 	GameControler();
 	void run();
-	void displayMenu();
-	/*void startGame();
+	
+	/*
 	void chooseBoxShip();
 	void handleBoxShipPageClick(const sf::Vector2f);
 	void handleBoxShipMouseMoved(const sf::Vector2f);
 	Board& getBoard();
-	Menu& getMenu();*/
+	Menu& getMenu();
+	*/
 	void startGame();
 	void helpGame();
 	void SwitchPlayer();
@@ -38,6 +41,11 @@ private:
 	Board m_board;
 	Resources m_resources;
 	sf::View m_gameView;
+	sf::Clock m_GameClock;
+
+	void handleMenuMouseMoved(const sf::Vector2f);
+	void handleClick(const sf::Vector2f);
+
 	//bool m_game_over = false;
 	//sf::Clock m_game_clock;
 	////private functions

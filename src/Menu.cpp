@@ -8,9 +8,9 @@ Menu::Menu(sf::RenderWindow& window)
 {
 	//beckground sprite
 	m_background.setTexture(Resources::instance().getMenuTexture(menuBackground));
-	m_background.scale(1.4f, 1.4f);
-
-
+	m_background.scale(1.5f, 1.6f);
+	//title sprite
+	m_title.setTexture(Resources::instance().getMenuTexture(Title));
 	//the menu buttunes
 	for (int button = PLAY; button <= EXIT; button++)
 	{
@@ -25,7 +25,23 @@ Menu::Menu(sf::RenderWindow& window)
 	setPosition();
 }
 
+sf::Sprite Menu::getButton(const Button button) const
+{
+	return m_buttons[button];
+}
 
+
+//This function changes the color of the button as soon as the user hovers over it with the mouse
+void Menu::ButtonPress(const Button button)
+{
+	m_buttons[button].setColor(sf::Color::Color(255, 255, 255, 150));
+}
+
+//This function changes the color of the button as soon as the user removes the mouse from the button
+void Menu::ButtonRelease(const Button button)
+{
+	m_buttons[button].setColor(sf::Color::Color(255, 255, 255));
+}
 
 
 const std::pair<GameTextures, GameTextures> Menu::getPlayerTextures() const
@@ -68,30 +84,26 @@ void Menu::displayRules()
 //adding new button to the menu
 void Menu::add(const Button button, std::unique_ptr<Command> command)
 {
-
 	m_options.push_back(std::make_pair(m_buttons[button], std::move(command)));
-	
 }
 
-void Menu::drawMenu() const
+//draw the game menu
+void Menu::drawMenu(sf::RenderWindow& window)const
 {
-
-	m_window.draw(m_background);
-
+	window.draw(m_background);
 	for (const auto& option : m_options)
 	{
-		m_window.draw(option.first);
+		window.draw(option.first);
 	}
-	//m_window.draw(m_title);
+	window.draw(m_title);
 }
 
-
-//this function set the position 
+//this function set the position of the buttons and the title in the menu
 void Menu::setPosition()
 {
-	//buttons
+	//set the buttons
 	m_buttons[PLAY].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[PLAY].getTextureRect().width) * 0.5,
-		WINDOW_HEIGHT - m_buttons[PLAY].getTextureRect().height * 4));
+		WINDOW_HEIGHT - m_buttons[PLAY].getTextureRect().height * 3.5));
 
 	m_buttons[HELP].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[HELP].getTextureRect().width) * 0.75,
 		WINDOW_HEIGHT - m_buttons[HELP].getTextureRect().height * 4));;
@@ -105,69 +117,12 @@ void Menu::setPosition()
 	m_buttons[EXIT].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[EXIT].getTextureRect().width) * 0.75,
 		WINDOW_HEIGHT - m_buttons[EXIT].getTextureRect().height * 2));
 
-
-
-
-	////resize Buttons 
-	//m_buttons[PLAY].scale(sf::Vector2f(WINDOW_WIDTH * 0.195 / m_buttons[PLAY].getTextureRect().width,
-	//	WINDOW_WIDTH * 0.195 / m_buttons[PLAY].getTextureRect().width));
-
-	//m_buttons[HELP].scale(sf::Vector2f(WINDOW_WIDTH * 0.195 / m_buttons[HELP].getTextureRect().width,
-	//	WINDOW_WIDTH * 0.195 / m_buttons[HELP].getTextureRect().width));
-
-	//m_buttons[EXIT].scale(sf::Vector2f(WINDOW_WIDTH * 0.195 / m_buttons[EXIT].getTextureRect().width,
-	//	WINDOW_WIDTH * 0.195 / m_buttons[EXIT].getTextureRect().width));
-
-	//m_buttons[BACK].scale(sf::Vector2f(WINDOW_WIDTH * 0.12 / m_buttons[BACK].getTextureRect().width,
-	//	WINDOW_WIDTH * 0.12 / m_buttons[BACK].getTextureRect().width));
-
-	//m_buttons[VIDEO_PLAY].scale(sf::Vector2f(WINDOW_WIDTH * 0.12 / m_buttons[VIDEO_PLAY].getTextureRect().width,
-	//	WINDOW_WIDTH * 0.12 / m_buttons[VIDEO_PLAY].getTextureRect().width));
-
-	//m_buttons[SCORE_TABLE].scale(sf::Vector2f(WINDOW_WIDTH * 0.12 / m_buttons[SCORE_TABLE].getTextureRect().width,
-	//	WINDOW_WIDTH * 0.12 / m_buttons[SCORE_TABLE].getTextureRect().width));
-
-	////resize Instructions:	
-	//m_instructionsPage[GAME_RULES].scale(sf::Vector2f(2.4f, 1.3f));
-
-	////locate menu:
-	//m_buttons[PLAY].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[PLAY].getTextureRect().width) * 0.5,
-	//	WINDOW_HEIGHT - m_buttons[PLAY].getTextureRect().height * 1.5 * 3));
-
-	//m_buttons[HELP].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[HELP].getTextureRect().width) * 0.5,
-	//	WINDOW_HEIGHT - m_buttons[HELP].getTextureRect().height * 1.5 * 2));
-
-	//m_buttons[EXIT].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[EXIT].getTextureRect().width) * 0.5,
-	//	WINDOW_HEIGHT - m_buttons[EXIT].getTextureRect().height * 1.5 * 1));
-
-	//m_buttons[VIDEO_PLAY].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.88, WINDOW_HEIGHT * 0.73));
-
-	//m_buttons[BACK].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.85, WINDOW_HEIGHT * 0.85));
-
-	////locate Instructions:
-	//m_instructionsPage[GAME_RULES].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.0, WINDOW_HEIGHT * 0.0));
+	//set the title
+	m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
+	m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
+		WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
 }
 
-//Returns the button from the array
-//sf::Sprite Menu::getButton(const object) const
-//{
-//	return m_buttons[object];
-//}
-//
-////make the shadow on the butten
-//void Menu::buttonRelease(const button button)
-//{
-//	m_buttons[button].setColor(sf::Color::Color(255, 255, 255));
-//}
-//
-////make the shadow on the butten
-//void Menu::buttonPress(const button button)
-//{
-//	m_buttons[button].setColor(sf::Color::Color(255, 255, 255, 150));
-//}
-//
-//
-//
 ////Returns the from the array
 //sf::Sprite Menu::getInstructions(const Instructions object) const
 //{
