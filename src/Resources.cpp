@@ -9,11 +9,18 @@ Resources::Resources()
 //loading all the textures
 void Resources::loadTextures()
 {
-	m_menu_textures[menuBackground].loadFromFile("menuBackground.png");
-	m_menu_textures[menuBackground].setSmooth(true);
+	m_menuTextures[menuBackground].loadFromFile("menuBackground.png");
+	m_menuTextures[menuBackground].setSmooth(true);
 	//m_menu_textures[Title].loadFromFile("Title.png");
 	//m_menu_textures[Title].setSmooth(true);
 
+
+	//menu buttons
+	m_menuButton[PLAY].loadFromFile("Play.png");
+	m_menuButton[HELP].loadFromFile("Help.png");
+	m_menuButton[SWITCH_PLAYER].loadFromFile("Switch_Player.png");
+	m_menuButton[SCORE_TABLE].loadFromFile("ScoreTable.png");
+	m_menuButton[EXIT].loadFromFile("Exit.png");
 
 	////loading all images
 	//m_textureVec.resize(TextureObject::t_Total);
@@ -31,8 +38,8 @@ void Resources::loadTextures()
 	//loading all buttones
 	for (int button = PLAY; button <= BACK; button++)
 	{
-		//m_ButtonTextures[button].loadFromFile(m_ButtonFiles[button]);
-		//m_ButtonTextures[button].setSmooth(true);
+		//m_menuButton[button].loadFromFile(m_ButtonFiles[button]);
+		//m_menuButton[button].setSmooth(true);
 	}
 
 	//for (int instruction = GAME_RULES; instruction <= GAME_RULES; instruction++)
@@ -68,7 +75,7 @@ const sf::Texture& Resources::getTexture(TextureObject texObj) const
 
 const sf::Texture& Resources::getMenuTexture(const MenuTextures texture) const
 {
-	return m_menu_textures[texture];
+	return m_menuTextures[texture];
 }
 
 //tool bar font
@@ -80,7 +87,7 @@ const sf::Font& Resources::getFont() const
 //Buttones texture
 sf::Texture& Resources::getButton(Button button)
 {
-	return m_ButtonTextures[button];
+	return m_menuButton[button];
 }
 
 //return the sound

@@ -74,16 +74,16 @@ public:
 private:
 
 	void loadTextures();
-	sf::Texture m_menu_textures[MENU_TEXTURES];
-
+	sf::Texture m_menuTextures[MENU_TEXTURES];
+	sf::Texture m_menuButton[MENU_BUTTONS];
+	sf::Texture m_InstructionsTextures[INSTRUCTIONS];
+	sf::Texture m_game_textures[GAME_TEXTURES];
 
 	sf::Font m_font;
 	sf::CircleShape player;
 	//sf::Sound m_sound;
 //	sf::Music m_music;
-	sf::Texture m_ButtonTextures[MENU_BUTTONS];
-	sf::Texture m_InstructionsTextures[INSTRUCTIONS];
-	sf::Texture m_game_textures[GAME_TEXTURES];
+
 
 
 	std::vector<sf::Texture> m_textureVec;

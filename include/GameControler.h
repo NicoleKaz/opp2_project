@@ -5,11 +5,12 @@
 #include "Resources.h"
 #include "Board.h"
 #include "Menu.h"
-//#include "ScoreTable.h"
 #include "HelpButton.h"
 #include "PlayButton.h"
 #include "SwitchPlayerButton.h"
 #include "ScoreTableButton.h"
+#include <ExitGame.h>
+
 
 class GameControler
 {
@@ -26,6 +27,7 @@ public:
 	void startGame();
 	void helpGame();
 	void SwitchPlayer();
+	void quitGame();
 
 
 private:	

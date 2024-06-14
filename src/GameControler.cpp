@@ -18,9 +18,9 @@ GameControler::GameControler()
     m_menu.add(HELP, std::make_unique<HelpButton>(this, m_window));
     m_menu.add(SWITCH_PLAYER, std::make_unique<SwitchPlayerButton>(this, m_window));
     m_menu.add(SCORE_TABLE, std::make_unique<ScoreTableButton>(this, m_window));
+    m_menu.add(EXIT, std::make_unique<ExitGame>(this, m_window));
 };
 
-//PLAY, HELP, SCORE_TABLE, BACK, VIDEO_PLAY, EXIT
 
 
 //this function is the game loop
@@ -30,10 +30,10 @@ void GameControler::run()
     while (m_window.isOpen())
     {
         //display the first window 
-        sf::Sprite& m_background = m_menu.getBackground();
-        m_background.scale(sf::Vector2f(2.35f, 1.35f));
+        /*sf::Sprite& m_background = m_menu.getBackground();
+        m_background.scale(sf::Vector2f(2.35f, 1.35f));*/
         m_window.clear(sf::Color::Color(0, 0, 0));
-        m_window.draw(m_background);
+        //m_window.draw(m_background);
         m_menu.drawMenu();
         m_window.display();
         std::this_thread::sleep_for(std::chrono::seconds(5));
@@ -82,5 +82,11 @@ void GameControler::helpGame()
 
 void GameControler::SwitchPlayer()
 {
+}
+
+void GameControler::quitGame()
+{
+	m_window.close();
+
 }
 
