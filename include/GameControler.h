@@ -21,6 +21,12 @@ class GameControler
 public:
 	GameControler();
 	void run();
+
+	void handleSwitchPlayer(const sf::Vector2f location);
+
+	void handleSwitchPlayerMouseMoved(const sf::Vector2f location);
+
+	Board& getBoard();
 	
 	/*
 	void chooseBoxShip();

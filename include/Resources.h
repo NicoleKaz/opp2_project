@@ -20,7 +20,7 @@ enum MenuPlayer { PLAYER1, PLAYER2, PLAYER3};
 
 
 enum GameTextures {
-	Floor, Level_Background, PlayerBox1, PlayerBox2, PlayerBox3, PlayerBox4, PlayerBox5, PlayerBox6,
+	Floor, Level_Background, First_Player, Second_Player, Third_Player, PlayerBox4, PlayerBox5, PlayerBox6,
 	PlayerShip1, PlayerShip2, PlayerShip3, PlayerShip4, PlayerShip5, PlayerShip6, Spike1, Spike2, Spikes,
 	Coin, Cube1, Cube2, CubeCube, Gate1, Gate2, Gate3, Gate4, Gate5, Jumper1, Jumper2, Rectangle,
 	Enemy1SpriteSheet, Enemy2SpriteSheet, Enemy1, Enemy2, ScoreBoard

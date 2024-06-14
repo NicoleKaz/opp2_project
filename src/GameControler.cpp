@@ -46,7 +46,6 @@ void GameControler::run()
                 m_window.close();
                 break;
             }
-
             case sf::Event::MouseButtonReleased:
             {
                 //getting the click location, checking what button pressed
@@ -57,7 +56,6 @@ void GameControler::run()
                 m_menu.action(location);
                 break;
             }
-
             //case sf::Event::MouseMoved:
             //{
             //    //indicate if the mouse on the buttons 
@@ -68,54 +66,61 @@ void GameControler::run()
 
             }
         }
-        m_menu.drawMenu(this->m_window);
-        m_window.display();
-        float deltaTime = m_GameClock.restart().asSeconds();
-        //event from user mouse
-        if (auto event = sf::Event{}; m_window.waitEvent(event))
-        {
-            switch (event.type)
-            {
-            case sf::Event::Closed: //closes the window from the console
-                m_window.close();
-                break;
-
-            case sf::Event::MouseButtonReleased: //where was preesed
-            {
-                auto location = m_window.mapPixelToCoords(
-                    { event.mouseButton.x, event.mouseButton.y });
-                handleClick(location);
-                break;
-            }
-            case sf::Event::MouseMoved: //shadow 
-            {
-                auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
-                handleMenuMouseMoved(location);
-            }
-            }
-        }
-        //exit from the window 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        {
-            m_window.close();
-        }
     }
+}
+
+
+void GameControler::handleSwitchPlayer(const sf::Vector2f location)
+{
+	//loop to go over the buttons
+	for (int player = PLAYER1; player <= PLAYER3; player++)
+	{
+		//check if a button preesed
+		if ((m_menu.getPlayer((MenuPlayer)player).getGlobalBounds().contains(location)))
+		{
+            m_menu.choosePlayer((MenuPlayer)player);
+            break;
+		}
+	}            
+}
+
+void GameControler::handleSwitchPlayerMouseMoved(const sf::Vector2f location)
+{
+	//loop to go over the buttons
+    for (int player = PLAYER1; player <= PLAYER3; player++)
+    {
+	    //check if a button preesed
+	    if ((m_menu.getPlayer((MenuPlayer)player).getGlobalBounds().contains(location)))
+	    {
+		    m_menu.ButtonPress((MenuPlayer)player);
+	    }
+	    else
+	    {
+		    m_menu.ButtonRelease((MenuPlayer)player);
+	    }
+    }
+
+}
+
+Board& GameControler::getBoard()
+{
+    return m_board;
 }
 
 //This function checks whether one of the buttons in menu has been pressed
 void GameControler::handleMenuMouseMoved(const sf::Vector2f location)
 {
     //loop to go over the buttons
-    for (int button = PLAY; button <= EXIT; button++)
+    for (int player = PLAY; player <= EXIT; player++)
     {
         //check if a button preesed
-        if ((m_menu.getButton((Button)button).getGlobalBounds().contains(location)))
+        if ((m_menu.getButton((Button)player).getGlobalBounds().contains(location)))
         {
-            m_menu.ButtonPress((Button)button);
+            m_menu.ButtonPress((MenuPlayer)player);
         }
         else
         {
-            m_menu.ButtonRelease((Button)button);
+            m_menu.ButtonRelease((MenuPlayer)player);
         }
     }
 }

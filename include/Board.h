@@ -19,7 +19,8 @@ class Board
 {
 public:
     Board();
-    Board(sf::RenderWindow&, const std::pair<GameTextures,GameTextures>);
+    Board(sf::RenderWindow&, const GameTextures);
+    void switchPlayer(const GameTextures player_textures);
     //void drawBoard() const;
     void drawBoard(sf::RenderWindow&);
     void moveObjects();
@@ -42,7 +43,7 @@ private:
     sf::RenderWindow& m_window;
     b2Vec2 m_gravity;
    // b2World m_world;
-    std::pair<GameTextures, GameTextures> m_player_textures;
+    GameTextures m_player_textures;
 
     //game objects:
     //std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;

@@ -32,48 +32,36 @@ sf::Sprite Menu::getButton(const Button button) const
 
 
 //This function changes the color of the button as soon as the user hovers over it with the mouse
-void Menu::ButtonPress(const Button button)
+void Menu::ButtonPress(const MenuPlayer player)
 {
-	m_buttons[button].setColor(sf::Color::Color(255, 255, 255, 150));
+	m_players[player].setColor(sf::Color::Color(255, 255, 255, 255));
+
 }
 
 //This function changes the color of the button as soon as the user removes the mouse from the button
-void Menu::ButtonRelease(const Button button)
+void Menu::ButtonRelease(const MenuPlayer player)
 {
-	m_buttons[button].setColor(sf::Color::Color(255, 255, 255));
+	m_players[player].setColor(sf::Color::Color(255, 255, 255, 0));
 }
 
 
-const std::pair<GameTextures, GameTextures> Menu::getPlayerTextures() const
+const GameTextures Menu::getPlayerTextures() const
 {
-	//returning the player textures picked by pair of box and ship
-	switch (m_box_ship)
+	// Returning the player textures picked 
+	switch (m_player)
 	{
-	case BoxShip1:
-		return std::pair<GameTextures, GameTextures>(PlayerBox1, PlayerShip1);
-		break;
-
-	case BoxShip2:
-		return std::pair<GameTextures, GameTextures>(PlayerBox2, PlayerShip2);
-		break;
-
-	case BoxShip3:
-		return std::pair<GameTextures, GameTextures>(PlayerBox3, PlayerShip3);
-		break;
-
-	case BoxShip4:
-		return std::pair<GameTextures, GameTextures>(PlayerBox4, PlayerShip4);
-		break;
-
-	case BoxShip5:
-		return std::pair<GameTextures, GameTextures>(PlayerBox5, PlayerShip5);
-		break;
-
-	case BoxShip6:
-		return std::pair<GameTextures, GameTextures>(PlayerBox6, PlayerShip6);
-		break;
+	case PLAYER1:
+		return GameTextures::First_Player;
+	case PLAYER2:
+		return GameTextures::Second_Player;
+	case PLAYER3:
+		return GameTextures::Third_Player;
+	default:
+		// Handle the case where m_player is not a valid player
+		throw std::runtime_error("Invalid player type");
 	}
 }
+
 
 //this function showes the instructions page after the press
 void Menu::displayRules()
@@ -109,12 +97,24 @@ void Menu::action(const sf::Vector2f& location) const
 	}
 }
 
+void Menu::choosePlayer(const MenuPlayer player)
+{
+	m_player = player;
+}
+
+
+const sf::Sprite Menu::getPlayer(const MenuPlayer player) const
+{
+	//return the sprite
+	return m_players[player];
+}
+
 void Menu::drawPlayer()const
 {
 	m_window.draw(m_background);
 	for (int player = PLAYER1; player <= PLAYER3; player++)
 	{
-		m_window.draw(m_player[player]);
+		m_window.draw(m_players[player]);
 	}
 	//m_window.draw(m_box_ship_text);
 }
