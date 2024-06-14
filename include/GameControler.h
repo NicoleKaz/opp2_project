@@ -6,6 +6,8 @@
 #include <iomanip>
 #include "SwitchPlayerButton.h"
 #include "ScoreTableButton.h"
+#include <ExitGame.h>
+#include <Choose_LevelButton.h>
 #include "Resources.h"
 #include "HelpButton.h"
 #include "PlayButton.h"
@@ -25,12 +27,15 @@ public:
 	void handleBoxShipPageClick(const sf::Vector2f);
 	void handleBoxShipMouseMoved(const sf::Vector2f);
 	Board& getBoard();
-	Menu& getMenu();
 	*/
+
+	Menu& getMenu();
+
 	void startGame();
 	void helpGame();
 	void SwitchPlayer();
 	void quitGame();
+	void chooseLevel();
 
 
 private:	

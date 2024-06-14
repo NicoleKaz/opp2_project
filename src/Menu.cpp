@@ -98,6 +98,28 @@ void Menu::drawMenu(sf::RenderWindow& window)const
 	window.draw(m_title);
 }
 
+void Menu::action(const sf::Vector2f& location) const
+{
+	for (const auto& option : m_options)
+	{
+		if (option.first.getGlobalBounds().contains(location))
+		{
+			option.second->execute();
+		}
+	}
+}
+
+void Menu::drawPlayer()const
+{
+	m_window.draw(m_background);
+	for (int player = PLAYER1; player <= PLAYER3; player++)
+	{
+		m_window.draw(m_player[player]);
+	}
+	//m_window.draw(m_box_ship_text);
+}
+
+//this function set the position 
 //this function set the position of the buttons and the title in the menu
 void Menu::setPosition()
 {

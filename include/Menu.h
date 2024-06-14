@@ -24,6 +24,11 @@ public:
 	void add(const Button button, std::unique_ptr<Command> command);
 	void drawMenu(sf::RenderWindow&)const;
 
+	void action(const sf::Vector2f& location) const;
+
+	void drawPlayer() const;
+
+
 	const std::pair<GameTextures, GameTextures> getPlayerTextures() const;
 
 private:
@@ -34,6 +39,8 @@ private:
 	//arrays
 	sf::Sprite m_buttons[MENU_BUTTONS];
 	sf::Sprite m_instructionsPage[INSTRUCTIONS];
+	sf::Sprite m_player[MENU_PLAYER];
+
 
 	void setPosition();
 

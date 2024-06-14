@@ -7,7 +7,7 @@
 
 //enum
 enum Instructions { GAME_RULES };
-enum Button {PLAY, HELP, SWITCH_PLAYER, SCORE_TABLE, EXIT };
+enum Button { PLAY, HELP, SWITCH_PLAYER,CHOOSE_LEVEL, SCORE_TABLE, EXIT };
 enum ButtonHelp {BACK, VIDEO_PLAY};
 enum Direction { Up, Down, Right, Left, Stay };
 enum ToolBarWord { LIFE, SCORE, LEVEL, TIME, KEYCOUNTER };
@@ -15,7 +15,7 @@ enum Sound { CLICK, MINUS_LIFE, EAT, CLOCK_SOUND, DOOR_SOUND, FREEZE_SOUND, KEY_
 enum Music { SONG, SECOND_END };
 enum Object { MOUSE, KEY, WALL, DOOR, CHEESE, PRESENT, ADD_LIFE, FREEZE, ADD_TIME };
 enum MenuTextures { menuBackground, Title};
-enum MenuBoxShips { BoxShip1, BoxShip2, BoxShip3, BoxShip4, BoxShip5, BoxShip6 };
+enum MenuPlayer { PLAYER1, PLAYER2, PLAYER3};
 
 
 
@@ -29,6 +29,7 @@ enum GameTextures {
 
 //consts
 const int MENU_BUTTONS = 5;
+const int MENU_PLAYER = 3;
 const int INSTRUCTIONS = 1;
 const int GAME_OBJECTS = 9;
 const int TOOL_BAR = 5;

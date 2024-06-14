@@ -1,4 +1,8 @@
 #include "GameControler.h"
+#include <thread>
+#include <chrono>
+#include <iostream>
+
 
 
 GameControler::GameControler()
@@ -14,6 +18,7 @@ GameControler::GameControler()
     m_menu.add(PLAY, std::make_unique<PlayButton>(this, m_window));
     m_menu.add(HELP, std::make_unique<HelpButton>(this, m_window));
     m_menu.add(SWITCH_PLAYER, std::make_unique<SwitchPlayerButton>(this, m_window));
+    m_menu.add(CHOOSE_LEVEL, std::make_unique<Choose_LevelButton>(this, m_window));
     m_menu.add(SCORE_TABLE, std::make_unique<ScoreTableButton>(this, m_window));
     m_menu.add(EXIT, std::make_unique<ExitGame>(this, m_window));
 };
@@ -28,6 +33,41 @@ void GameControler::run()
     {
         //display the first window 
         m_window.clear(sf::Color::Color(0, 0, 0));
+        m_menu.drawMenu(m_window);
+        m_window.display();
+        //std::this_thread::sleep_for(std::chrono::seconds(5));
+
+        if (auto event = sf::Event{}; m_window.waitEvent(event))
+        {
+            switch (event.type)
+            {
+            case sf::Event::Closed:
+            {
+                m_window.close();
+                break;
+            }
+
+            case sf::Event::MouseButtonReleased:
+            {
+                //getting the click location, checking what button pressed
+                const auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+                // const int button = m_menu.getOptionFromUser(location);l
+
+                 //performing the button action acordinglys
+                m_menu.action(location);
+                break;
+            }
+
+            //case sf::Event::MouseMoved:
+            //{
+            //    //indicate if the mouse on the buttons 
+            //    const auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
+            //    m_menu.handleMenuMouseMoved(location);
+            //    break;
+            //}
+
+            }
+        }
         m_menu.drawMenu(this->m_window);
         m_window.display();
         float deltaTime = m_GameClock.restart().asSeconds();
@@ -117,6 +157,11 @@ void GameControler::startGame()
     }
 }
 
+Menu& GameControler::getMenu()
+{
+    return m_menu;
+}
+
 void GameControler::helpGame()
 {
 
@@ -128,6 +173,10 @@ void GameControler::SwitchPlayer()
 
 void GameControler::quitGame()
 {
-	m_window.close();
+    m_window.close();
+}
+
+void GameControler::chooseLevel()
+{
 }
 
