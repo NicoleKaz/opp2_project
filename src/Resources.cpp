@@ -78,7 +78,7 @@ const sf::Font& Resources::getFont() const
 //Buttones texture
 const sf::Texture& Resources::getButton(const Button button)const
 {
-	return m_menuButton[button];;
+	return m_menuButton[button];;;
 }
 
 //return the sound
