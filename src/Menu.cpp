@@ -20,7 +20,7 @@ Menu::Menu(sf::RenderWindow& window)
 	for (int player = PLAYER1; player <= PLAYER3; player++)
 	{
 		m_players[player].setTexture(Resources::instance().getMenuPlayer((MenuPlayer)player));
-		m_players[player].scale(0.5, 0.5);
+		m_players[player].scale(0.9, 0.9);
 
 	}
 	//the instruction page 
@@ -48,7 +48,7 @@ void Menu::ButtonPress(const MenuPlayer player)
 //This function changes the color of the button as soon as the user removes the mouse from the button
 void Menu::ButtonRelease(const MenuPlayer player)
 {
-	m_players[player].setColor(sf::Color::Color(255, 255, 255, 0));
+	m_players[player].setColor(sf::Color::Color(255, 255, 255, 100));
 }
 
 

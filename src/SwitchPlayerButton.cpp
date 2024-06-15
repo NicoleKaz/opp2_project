@@ -12,18 +12,11 @@
 SwitchPlayerButton::SwitchPlayerButton(GameControler* game, sf::RenderWindow& window)
 	:Command(game, window)
 {
-	//adding buttons to the submenu
-	//m_levels_menu.add(WithoutYou, std::make_unique<WithoutYouButton>(m_game, m_window));
-	//m_levels_menu.add(Greyhound, std::make_unique<GreyhoundButton>(m_game, m_window));
-	//m_levels_menu.add(OnlyTheHorses, std::make_unique<OnlyTheHorsesButton>(m_game, m_window));
-	//m_levels_menu.add(Spectre, std::make_unique<SpectreButton>(m_game, m_window));
 }
 
 void SwitchPlayerButton::execute()
 {
-    bool click = false;
-
-    while (m_window.isOpen() && !click)
+    while (m_window.isOpen())
     {
         m_window.clear();
         m_game->getMenu().drawPlayer();
@@ -41,8 +34,7 @@ void SwitchPlayerButton::execute()
                 // Performing the button action accordingly
                 m_game->handleSwitchPlayer(location);
                 m_game->getBoard().switchPlayer(m_game->getMenu().getPlayerTextures());
-                click = true;
-                break;
+                return;               
             }
             case sf::Event::MouseMoved:
             {
@@ -53,13 +45,13 @@ void SwitchPlayerButton::execute()
             }
             case sf::Event::Closed:
                 m_window.close();
-                break;
+                return;
             }
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         {
-            break;
+            return;
         }
     }
 }
