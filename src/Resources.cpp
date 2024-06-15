@@ -6,6 +6,12 @@ Resources::Resources()
 	loadTextures();
 }
 
+const sf::Texture& Resources::getMenuPlayer(const MenuPlayer player) const
+{
+	return m_menuPlayers[player];
+}
+
+
 //loading all the textures
 void Resources::loadTextures()
 {
@@ -18,8 +24,13 @@ void Resources::loadTextures()
 	m_menuButton[PLAY].loadFromFile("Play.png");
 	m_menuButton[HELP].loadFromFile("Help.png");
 	m_menuButton[SWITCH_PLAYER].loadFromFile("Switch_Player.png");
+	m_menuButton[CHOOSE_LEVEL].loadFromFile("Choose_Level.png");
 	m_menuButton[SCORE_TABLE].loadFromFile("ScoreTable.png");
 	m_menuButton[EXIT].loadFromFile("Exit.png");
+
+	m_menuPlayers[PLAYER1].loadFromFile("Player1.png");
+	m_menuPlayers[PLAYER2].loadFromFile("Player2.png");
+	m_menuPlayers[PLAYER3].loadFromFile("Player3.png");
 
 	m_font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 }

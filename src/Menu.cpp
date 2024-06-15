@@ -16,6 +16,13 @@ Menu::Menu(sf::RenderWindow& window)
 	{
 		m_buttons[button].setTexture(Resources::instance().getButton((Button)button));
 	}
+
+	for (int player = PLAYER1; player <= PLAYER3; player++)
+	{
+		m_players[player].setTexture(Resources::instance().getMenuPlayer((MenuPlayer)player));
+		m_players[player].scale(0.5, 0.5);
+
+	}
 	//the instruction page 
 	/*for (int instruction = GAME_RULES; instruction <= GAME_RULES; instruction++)
 	{
@@ -132,6 +139,9 @@ void Menu::setPosition()
 
 	m_buttons[SWITCH_PLAYER].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[SWITCH_PLAYER].getTextureRect().width) * 0.25,
 		WINDOW_HEIGHT - m_buttons[SWITCH_PLAYER].getTextureRect().height * 4));
+	
+	m_buttons[CHOOSE_LEVEL].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[CHOOSE_LEVEL].getTextureRect().width) * 0.25,
+		WINDOW_HEIGHT - m_buttons[CHOOSE_LEVEL].getTextureRect().height * 3.5));
 
 	m_buttons[SCORE_TABLE].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[SCORE_TABLE].getTextureRect().width) * 0.5,
 		WINDOW_HEIGHT - m_buttons[SCORE_TABLE].getTextureRect().height * 2));
@@ -143,6 +153,12 @@ void Menu::setPosition()
 	//m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
 	//m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
 	//	WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
+
+
+	//for players
+	m_players[PLAYER1].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.1f, WINDOW_HEIGHT / 2.5f));
+	m_players[PLAYER2].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.4f, WINDOW_HEIGHT / 2.5f));
+	m_players[PLAYER3].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.7f, WINDOW_HEIGHT / 2.5f));
 }
 
 ////Returns the from the array

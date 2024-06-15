@@ -50,6 +50,7 @@ class Resources
 {
 public:
 	Resources(); //private so there will be no duplicates
+	const sf::Texture& getMenuPlayer(const MenuPlayer player) const;
 	Resources(const Resources&) = default;
 	Resources& operator=(const Resources&) = default;
 	static Resources& instance(); //static so the resources will called once
@@ -67,6 +68,8 @@ private:
 	sf::Texture m_menuButton[MENU_BUTTONS];
 	sf::Texture m_InstructionsTextures[INSTRUCTIONS];
 	sf::Texture m_game_textures[GAME_TEXTURES];
+	sf::Texture m_menuPlayers[MENU_PLAYER];
+
 
 	std::vector<sf::Texture> m_MenuTexture;
 
