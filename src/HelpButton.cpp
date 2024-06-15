@@ -1,26 +1,33 @@
-#pragma once
-
 #include "HelpButton.h"
 #include "GameControler.h"
+#include <iostream>
 
-//#include "WithoutYouButton.h"
-//#include "GreyhoundButton.h"
-//#include "OnlyTheHorsesButton.h"
-//#include "SpectreButton.h"
 
 
 HelpButton::HelpButton(GameControler* game, sf::RenderWindow& window)
-	:Command(game, window)
-{
-	//adding buttons to the submenu
-	//m_levels_menu.add(WithoutYou, std::make_unique<WithoutYouButton>(m_game, m_window));
-	//m_levels_menu.add(Greyhound, std::make_unique<GreyhoundButton>(m_game, m_window));
-	//m_levels_menu.add(OnlyTheHorses, std::make_unique<OnlyTheHorsesButton>(m_game, m_window));
-	//m_levels_menu.add(Spectre, std::make_unique<SpectreButton>(m_game, m_window));
+    : Command(game, window) {
 }
 
 void HelpButton::execute()
 {
-	// כאשר לוחצים על כפתור המשחק, הפונקציה תבצע את הפעולות הנדרשות להתחלת המשחק
-	m_game->helpGame();
+    while (m_window.isOpen())
+    {
+        m_window.clear();
+        m_game->getMenu().displayRules();
+        m_window.display();
+
+        if (auto event = sf::Event{}; m_window.waitEvent(event))
+        {
+            switch (event.type)
+            {
+            case sf::Event::Closed:
+                m_window.close();
+                return;
+            }
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        {
+            return;
+        }
+    }
 }

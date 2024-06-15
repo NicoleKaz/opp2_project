@@ -6,7 +6,7 @@
 #include <vector>
 
 //enum
-enum Instructions { GAME_RULES };
+enum Instructions { GAME_RULES, STICKER };
 enum Button { PLAY, HELP, SWITCH_PLAYER,CHOOSE_LEVEL, SCORE_TABLE, EXIT };
 enum ButtonHelp {BACK, VIDEO_PLAY};
 enum Direction { Up, Down, Right, Left, Stay };
@@ -30,7 +30,7 @@ enum GameTextures {
 //consts
 const int MENU_BUTTONS = 6;
 const int MENU_PLAYER = 3;
-const int INSTRUCTIONS = 1;
+const int INSTRUCTIONS = 2;
 const int GAME_OBJECTS = 9;
 const int TOOL_BAR = 5;
 const int SOUNDS = 10;
@@ -54,10 +54,10 @@ public:
 	Resources(const Resources&) = default;
 	Resources& operator=(const Resources&) = default;
 	static Resources& instance(); //static so the resources will called once
-	sf::Texture& GetInstruction(Instructions);
-	const sf::Texture& getGameTexture(const GameTextures texture) const;
-	const sf::Font& getFont() const;
 
+	const sf::Font& getFont() const;
+	const sf::Texture& getInstruction(const Instructions)const;
+	const sf::Texture& getGameTexture(const GameTextures texture) const;
 	const sf::Texture& getMenuTexture(const MenuTextures)const;
 	const sf::Texture& getButton(const Button)const;
 	void playSound(Sound);
@@ -66,7 +66,7 @@ private:
 	void loadTextures();
 	sf::Texture m_menuTextures[MENU_TEXTURES];
 	sf::Texture m_menuButton[MENU_BUTTONS];
-	sf::Texture m_InstructionsTextures[INSTRUCTIONS];
+	sf::Texture m_instructionsTextures[INSTRUCTIONS];
 	sf::Texture m_game_textures[GAME_TEXTURES];
 	sf::Texture m_menuPlayers[MENU_PLAYER];
 
