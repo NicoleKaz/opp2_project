@@ -12,8 +12,10 @@ PlayersMenu::PlayersMenu(sf::RenderWindow& window)
         m_player[player].setTexture(Resources::instance().getMenuPlayer((MenuPlayer)player));
     }
     locateObjects();
-
 }
+
+
+
 
 
 void PlayersMenu::locateObjects()
@@ -69,7 +71,8 @@ void PlayersMenu::handleMouseMoved(const sf::Vector2f& location)
         {
             option.first.setColor(sf::Color::Yellow);  // Highlight on hover
         }
-        else {
+        else
+        {
             option.first.setColor(sf::Color::White);  // Reset color
         }
     }

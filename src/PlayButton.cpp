@@ -9,7 +9,7 @@
 
 
 PlayButton::PlayButton(GameControler* game,  sf::RenderWindow& window)
-	:Command(game, window)
+	:Command(game, window), m_levelsMenu(game, window)
 {
     //adding buttons to the submenu
 	//m_levels_menu.add(WithoutYou, std::make_unique<WithoutYouButton>(m_game, m_window));
@@ -20,20 +20,25 @@ PlayButton::PlayButton(GameControler* game,  sf::RenderWindow& window)
 
 void PlayButton::execute() 
 {
-    // כאשר לוחצים על כפתור המשחק, הפונקציה תבצע את הפעולות הנדרשות להתחלת המשחק
-    m_game->startGame();
-		
+	bool click = false;
+	while (m_window.isOpen() && !click)
+	{
+		m_window.clear();
+		m_levelsMenu.drawLevelsMenu();
+		m_window.display();
+
+
+
+
+		// כאשר לוחצים על כפתור המשחק, הפונקציה תבצע את הפעולות הנדרשות להתחלת המשחק
+		m_game->startGame();
+	}
 }
 
 
 //void PlayButton::execute()
 //{
-//    bool click = false;
-//    while (m_window.isOpen() && !click)
-//    {
-//        m_window.clear();
-//        m_levels_menu.drawLevelsMenu();
-//        m_window.display();
+//    
 //
 //        if (auto event = sf::Event{}; m_window.waitEvent(event))
 //        {

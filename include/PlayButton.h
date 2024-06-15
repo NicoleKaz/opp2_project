@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Command.h"
+#include <LevelsMenu.h>
 //#include "LevelsMenu.h"
 
 class GameControler;
@@ -17,4 +18,7 @@ private:
 	//LevelsMenu m_levels	_menu;
 	GameControler* m_game;
 	//sf::RenderWindow& m_window;
+	LevelsMenu m_levelsMenu;
+
+
 };

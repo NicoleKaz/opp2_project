@@ -1,15 +1,15 @@
 #include "SwitchPlayerButton.h"
 #include "Player1Button.h"
-//#include "Player2Button.h"
-//#include "Player3Button.h"
+#include "Player2Button.h"
+#include "Player3Button.h"
 
 SwitchPlayerButton::SwitchPlayerButton(GameControler* game, sf::RenderWindow& window)
     : Command(game, window), m_playerMenu(window)
 {
     // Add player selection commands to the player menu
     m_playerMenu.add(PLAYER1, std::make_unique<Player1Button>(game, window));
-    //m_playerMenu.add(PLAYER2, std::make_unique<Player2Button>(game, window));
-    //m_playerMenu.add(PLAYER3, std::make_unique<Player3Button>(game, window));
+    m_playerMenu.add(PLAYER2, std::make_unique<Player2Button>(game, window));
+    m_playerMenu.add(PLAYER3, std::make_unique<Player3Button>(game, window));
 }
 
 void SwitchPlayerButton::execute()

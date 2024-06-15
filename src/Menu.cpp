@@ -10,7 +10,7 @@ Menu::Menu(sf::RenderWindow& window)
 	m_background.setTexture(Resources::instance().getMenuTexture(menuBackground));
 	m_background.scale(1.4f, 1.4f);
 	//title sprite
-	//m_title.setTexture(Resources::instance().getMenuTexture(Title));
+	m_title.setTexture(Resources::instance().getMenuTexture(Title));
 	//the menu buttunes
 	for (int button = PLAY; button <= EXIT; button++)
 	{
@@ -24,11 +24,10 @@ Menu::Menu(sf::RenderWindow& window)
 
 	}
 	//the instruction page 
-	/*for (int instruction = GAME_RULES; instruction <= GAME_RULES; instruction++)
+	for (int instruction = GAME_RULES; instruction <= STICKER; instruction++)
 	{
-		m_instructionsPage[instruction].setTexture(Resources::instance().getInstruction((instructions)instruction));
+		m_instructionsPage[instruction].setTexture(Resources::instance().getInstruction((Instructions)instruction));
 	}
-	m_instructionsPage[GAME_RULES].setColor(sf::Color::Color(255, 255, 255, 0));*/
 	setPosition();
 }
 
@@ -70,17 +69,22 @@ const GameTextures Menu::getPlayerTextures() const
 }
 
 
-//this function showes the instructions page after the press
-void Menu::displayRules()
-{
-	m_instructionsPage[GAME_RULES].setColor(sf::Color::Color(255, 255, 255, 255));
-}
-
 //adding new button to the menu
 void Menu::add(const Button button, std::unique_ptr<Command> command)
 {
 	m_options.push_back(std::make_pair(m_buttons[button], std::move(command)));
 }
+
+//this function showes the instructions page after the press
+void Menu::displayRules()const
+{
+	m_window.draw(m_background);
+	for (int inst = GAME_RULES; inst <= STICKER; inst++)
+	{
+		m_window.draw(m_instructionsPage[inst]);
+	}
+}
+
 
 
 
@@ -144,10 +148,14 @@ void Menu::setPosition()
 	m_buttons[EXIT].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[EXIT].getTextureRect().width) * 0.75,
 		WINDOW_HEIGHT - m_buttons[EXIT].getTextureRect().height * 2));
 
+	m_instructionsPage[GAME_RULES].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.120f, WINDOW_HEIGHT * 0.10f));
+	m_instructionsPage[STICKER].setPosition(sf::Vector2f((WINDOW_WIDTH - m_instructionsPage[STICKER].getTextureRect().width) * 0.9,
+		WINDOW_HEIGHT - m_instructionsPage[STICKER].getTextureRect().height * 1.0));
+
 	////set the title
-	//m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
-	//m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
-	//	WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
+	m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
+	m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
+		WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
 
 
 	//for players

@@ -30,13 +30,22 @@ void Resources::loadTextures()
 	m_menuButton[PLAY].loadFromFile("Play.png");
 	m_menuButton[HELP].loadFromFile("Help.png");
 	m_menuButton[SWITCH_PLAYER].loadFromFile("Switch_Player.png");
-	m_menuButton[CHOOSE_LEVEL].loadFromFile("Choose_Level.png");
+	m_menuButton[CHOOSE_LEVEL].loadFromFile("Sticker.png");
 	m_menuButton[SCORE_TABLE].loadFromFile("ScoreTable.png");
 	m_menuButton[EXIT].loadFromFile("Exit.png");
 
 	m_menuPlayers[PLAYER1].loadFromFile("Player1.png");
 	m_menuPlayers[PLAYER2].loadFromFile("Player2.png");
 	m_menuPlayers[PLAYER3].loadFromFile("Player3.png");
+
+	m_instructionsTextures[GAME_RULES].loadFromFile("instructions.png");
+	m_instructionsTextures[STICKER].loadFromFile("Sticker.png");
+
+	//load level image
+	m_menuLevel[level1].loadFromFile("Level1.png");
+	m_menuLevel[level1].loadFromFile("Level2.png");
+	m_menuLevel[level1].loadFromFile("Level3.png");
+
 
 	m_font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 }
@@ -52,6 +61,12 @@ Resources& Resources::instance()
 const sf::Texture& Resources::getMenuTexture(const MenuTextures texture)const
 {
 	return m_menuTextures[texture];
+}
+
+//return the instruction
+const sf::Texture& Resources::getInstruction(const Instructions instruction)const
+{
+	return m_instructionsTextures[instruction];
 }
 
 //tool bar font
@@ -73,14 +88,13 @@ void Resources::playSound(Sound sound)
 	//m_sound.play();
 }
 
-//return the instruction
-sf::Texture& Resources::GetInstruction(Instructions instruction)
-{
-	return m_InstructionsTextures[instruction];
-}
-
 //
 const sf::Texture& Resources::getGameTexture(const GameTextures texture) const
 {
 	return m_game_textures[texture];
+}
+
+const sf::Texture& Resources::getLevelsMenu(const MenuLevels button) const
+{
+	return m_menuLevel[button];
 }
