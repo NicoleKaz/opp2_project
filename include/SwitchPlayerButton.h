@@ -1,17 +1,15 @@
 #pragma once
 
 #include "Command.h"
-//#include "LevelsMenu.h"
+#include "PlayersMenu.h"
+#include <SFML/Graphics.hpp>
 
-class GameControler;
-
-class SwitchPlayerButton : public Command
+class SwitchPlayerButton : public Command 
 {
 public:
-
-	SwitchPlayerButton(GameControler* game, sf::RenderWindow& window);
-	void execute() override;
+    SwitchPlayerButton(GameControler* game, sf::RenderWindow& window);
+    void execute()override;
 
 private:
-
+    PlayersMenu m_playerMenu;
 };

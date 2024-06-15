@@ -82,6 +82,8 @@ void Menu::add(const Button button, std::unique_ptr<Command> command)
 	m_options.push_back(std::make_pair(m_buttons[button], std::move(command)));
 }
 
+
+
 //draw the game menu
 void Menu::drawMenu()const
 {
@@ -92,6 +94,7 @@ void Menu::drawMenu()const
 	}
 	m_window.draw(m_title);
 }
+
 
 void Menu::action(const sf::Vector2f& location) const
 {
@@ -116,15 +119,7 @@ const sf::Sprite Menu::getPlayer(const MenuPlayer player) const
 	return m_players[player];
 }
 
-void Menu::drawPlayer()const
-{
-	m_window.draw(m_background);
-	for (int player = PLAYER1; player <= PLAYER3; player++)
-	{
-		m_window.draw(m_players[player]);
-	}
-	//m_window.draw(m_box_ship_text);
-}
+
 
 //this function set the position 
 //this function set the position of the buttons and the title in the menu

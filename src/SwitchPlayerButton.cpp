@@ -1,17 +1,15 @@
-#pragma once
-
 #include "SwitchPlayerButton.h"
-#include "GameControler.h"
-//#include "WithoutYouButton.h"
-//#include "GreyhoundButton.h"
-//#include "OnlyTheHorsesButton.h"
-//#include "SpectreButton.h"
-
-
+#include "Player1Button.h"
+//#include "Player2Button.h"
+//#include "Player3Button.h"
 
 SwitchPlayerButton::SwitchPlayerButton(GameControler* game, sf::RenderWindow& window)
-	:Command(game, window)
+    : Command(game, window), m_playerMenu(window)
 {
+    // Add player selection commands to the player menu
+    m_playerMenu.add(PLAYER1, std::make_unique<Player1Button>(game, window));
+    //m_playerMenu.add(PLAYER2, std::make_unique<Player2Button>(game, window));
+    //m_playerMenu.add(PLAYER3, std::make_unique<Player3Button>(game, window));
 }
 
 void SwitchPlayerButton::execute()
@@ -19,7 +17,7 @@ void SwitchPlayerButton::execute()
     while (m_window.isOpen())
     {
         m_window.clear();
-        m_game->getMenu().drawPlayer();
+        m_playerMenu.drawPlayer();  // Draw the player menu
         m_window.display();
 
         if (auto event = sf::Event{}; m_window.waitEvent(event))
@@ -32,16 +30,15 @@ void SwitchPlayerButton::execute()
                 const auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
                 // Performing the button action accordingly
-                m_game->handleSwitchPlayer(location);
-                m_game->getBoard().switchPlayer(m_game->getMenu().getPlayerTextures());
-                return;               
+                m_playerMenu.handleAction(location);
+                return;
             }
             case sf::Event::MouseMoved:
             {
-                 // Indicate if the mouse on the buttons 
-                 const auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
-                 m_game->handleSwitchPlayerMouseMoved(location);
-                 break;
+                // Indicate if the mouse is on the buttons
+                const auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
+                m_playerMenu.handleMouseMoved(location);
+                break;
             }
             case sf::Event::Closed:
                 m_window.close();
@@ -55,8 +52,3 @@ void SwitchPlayerButton::execute()
         }
     }
 }
-
-
-
-
-

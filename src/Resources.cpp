@@ -12,6 +12,12 @@ const sf::Texture& Resources::getMenuPlayer(const MenuPlayer player) const
 }
 
 
+//const sf::Texture& Resources::getplayersMenuButtons(const LevelsMenuButtons button) const
+//{
+//	return m_level_menu_buttons[button];
+//}
+
+
 //loading all the textures
 void Resources::loadTextures()
 {
