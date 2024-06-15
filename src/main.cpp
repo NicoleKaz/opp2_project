@@ -1,5 +1,8 @@
 #include "GameControler.h"
 #include <iostream>
+#include <thread>
+#include <chrono>
+
 
 int main()
 {

@@ -8,9 +8,9 @@ Menu::Menu(sf::RenderWindow& window)
 {
 	//beckground sprite
 	m_background.setTexture(Resources::instance().getMenuTexture(menuBackground));
-	m_background.scale(1.5f, 1.6f);
+	m_background.scale(1.4f, 1.4f);
 	//title sprite
-	m_title.setTexture(Resources::instance().getMenuTexture(Title));
+	//m_title.setTexture(Resources::instance().getMenuTexture(Title));
 	//the menu buttunes
 	for (int button = PLAY; button <= EXIT; button++)
 	{
@@ -56,9 +56,9 @@ const GameTextures Menu::getPlayerTextures() const
 		return GameTextures::Second_Player;
 	case PLAYER3:
 		return GameTextures::Third_Player;
-	default:
-		// Handle the case where m_player is not a valid player
-		throw std::runtime_error("Invalid player type");
+	//default:
+		//// Handle the case where m_player is not a valid player
+		//throw std::runtime_error("Invalid player type");
 	}
 }
 
@@ -139,10 +139,10 @@ void Menu::setPosition()
 	m_buttons[EXIT].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[EXIT].getTextureRect().width) * 0.75,
 		WINDOW_HEIGHT - m_buttons[EXIT].getTextureRect().height * 2));
 
-	//set the title
-	m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
-	m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
-		WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
+	////set the title
+	//m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
+	//m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
+	//	WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
 }
 
 ////Returns the from the array

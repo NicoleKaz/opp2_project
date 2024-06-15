@@ -28,7 +28,7 @@ enum GameTextures {
 
 
 //consts
-const int MENU_BUTTONS = 5;
+const int MENU_BUTTONS = 6;
 const int MENU_PLAYER = 3;
 const int INSTRUCTIONS = 1;
 const int GAME_OBJECTS = 9;

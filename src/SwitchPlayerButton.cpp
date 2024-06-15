@@ -21,7 +21,9 @@ SwitchPlayerButton::SwitchPlayerButton(GameControler* game, sf::RenderWindow& wi
 
 void SwitchPlayerButton::execute()
 {
-    while (m_window.isOpen())
+    bool click = false;
+
+    while (m_window.isOpen() && !click)
     {
         m_window.clear();
         m_game->getMenu().drawPlayer();
@@ -39,7 +41,8 @@ void SwitchPlayerButton::execute()
                 // Performing the button action accordingly
                 m_game->handleSwitchPlayer(location);
                 m_game->getBoard().switchPlayer(m_game->getMenu().getPlayerTextures());
-                return;
+                click = true;
+                break;
             }
             case sf::Event::MouseMoved:
             {
@@ -50,13 +53,13 @@ void SwitchPlayerButton::execute()
             }
             case sf::Event::Closed:
                 m_window.close();
-                return;
+                break;
             }
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         {
-            return;
+            break;
         }
     }
 }

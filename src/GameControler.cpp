@@ -12,7 +12,8 @@ GameControler::GameControler()
 {
     m_window.setFramerateLimit(120);
     m_gameView.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-    m_gameView.setCenter(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
+    m_gameView.setCenter(WINDOW_WIDTH / 2, WINDOW_HEIGHT/2);
+
 
     //adding menu buttons:
     m_menu.add(PLAY, std::make_unique<PlayButton>(this, m_window));

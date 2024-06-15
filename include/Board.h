@@ -18,7 +18,7 @@
 class Board
 {
 public:
-    Board();
+    //Board();
     Board(sf::RenderWindow&, const GameTextures);
     void switchPlayer(const GameTextures player_textures);
     //void drawBoard() const;
