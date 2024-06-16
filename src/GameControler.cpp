@@ -19,7 +19,7 @@ GameControler::GameControler()
     m_menu.add(PLAY, std::make_unique<PlayButton>(this, m_window));
     m_menu.add(HELP, std::make_unique<HelpButton>(this, m_window));
     m_menu.add(SWITCH_PLAYER, std::make_unique<SwitchPlayerButton>(this, m_window));
-    m_menu.add(CHOOSE_LEVEL, std::make_unique<Choose_LevelButton>(this, m_window));
+   // m_menu.add(CHOOSE_LEVEL, std::make_unique<Choose_LevelButton>(this, m_window));
     m_menu.add(SCORE_TABLE, std::make_unique<ScoreTableButton>(this, m_window));
     m_menu.add(EXIT, std::make_unique<ExitGame>(this, m_window));
 };

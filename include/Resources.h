@@ -7,7 +7,7 @@
 
 //enum
 enum Instructions { GAME_RULES, STICKER };
-enum Button { PLAY, HELP, SWITCH_PLAYER,CHOOSE_LEVEL, SCORE_TABLE, EXIT };
+enum Button { PLAY, HELP, SWITCH_PLAYER, SCORE_TABLE, EXIT };
 enum ButtonHelp {BACK, VIDEO_PLAY};
 enum Direction { Up, Down, Right, Left, Stay };
 enum ToolBarWord { LIFE, SCORE, LEVEL, TIME, KEYCOUNTER };
@@ -31,7 +31,7 @@ enum GameTextures {
 
 //consts
 const int LEVEL_MENU = 3;
-const int MENU_BUTTONS = 6;
+const int MENU_BUTTONS = 5;
 const int MENU_PLAYER = 3;
 const int INSTRUCTIONS = 2;
 const int GAME_OBJECTS = 9;

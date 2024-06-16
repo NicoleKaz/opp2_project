@@ -134,8 +134,8 @@ void Menu::setPosition()
 	m_buttons[SWITCH_PLAYER].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[SWITCH_PLAYER].getTextureRect().width) * 0.25,
 		WINDOW_HEIGHT - m_buttons[SWITCH_PLAYER].getTextureRect().height * 4));
 	
-	m_buttons[CHOOSE_LEVEL].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[CHOOSE_LEVEL].getTextureRect().width) * 0.25,
-		WINDOW_HEIGHT - m_buttons[CHOOSE_LEVEL].getTextureRect().height * 3.5));
+	//m_buttons[CHOOSE_LEVEL].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[CHOOSE_LEVEL].getTextureRect().width) * 0.25,
+	//	WINDOW_HEIGHT - m_buttons[CHOOSE_LEVEL].getTextureRect().height * 3.5));
 
 	m_buttons[SCORE_TABLE].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[SCORE_TABLE].getTextureRect().width) * 0.5,
 		WINDOW_HEIGHT - m_buttons[SCORE_TABLE].getTextureRect().height * 2));

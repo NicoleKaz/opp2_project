@@ -36,7 +36,7 @@ void Resources::loadTextures()
 	m_menuButton[PLAY].loadFromFile("Play.png");
 	m_menuButton[HELP].loadFromFile("Help.png");
 	m_menuButton[SWITCH_PLAYER].loadFromFile("Switch_Player.png");
-	m_menuButton[CHOOSE_LEVEL].loadFromFile("Sticker.png");
+//	m_menuButton[CHOOSE_LEVEL].loadFromFile("Sticker.png");
 	m_menuButton[SCORE_TABLE].loadFromFile("ScoreTable.png");
 	m_menuButton[EXIT].loadFromFile("Exit.png");
 
@@ -45,8 +45,8 @@ void Resources::loadTextures()
 	m_menuPlayers[PLAYER3].loadFromFile("Player3.png");
 
 	m_menuLevel[level1].loadFromFile("Level1.png");
-	m_menuLevel[level2].loadFromFile("Level2.png");
-	m_menuLevel[level3].loadFromFile("Level3.png");
+	//m_menuLevel[level2].loadFromFile("Level2.png");
+	//m_menuLevel[level3].loadFromFile("Level3.png");
 
 	m_instructionsTextures[GAME_RULES].loadFromFile("instructions.png");
 	m_instructionsTextures[STICKER].loadFromFile("Sticker.png");	

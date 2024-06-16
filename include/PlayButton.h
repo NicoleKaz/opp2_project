@@ -11,14 +11,9 @@ class PlayButton : public Command
 public:
 
 	PlayButton(GameControler* game, sf::RenderWindow& window);
-
 	void execute() override;
 
 private:
-	//LevelsMenu m_levels	_menu;
-	GameControler* m_game;
-	//sf::RenderWindow& m_window;
 	LevelsMenu m_levelsMenu;
-
 
 };
