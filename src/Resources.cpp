@@ -11,6 +11,12 @@ const sf::Texture& Resources::getMenuPlayer(const MenuPlayer player) const
 	return m_menuPlayers[player];
 }
 
+//return the instruction
+const sf::Texture& Resources::getInstruction(const Instructions instruction)const
+{
+	return m_instructionsTextures[instruction];
+}
+
 
 //const sf::Texture& Resources::getplayersMenuButtons(const LevelsMenuButtons button) const
 //{
@@ -38,6 +44,16 @@ void Resources::loadTextures()
 	m_menuPlayers[PLAYER2].loadFromFile("Player2.png");;
 	m_menuPlayers[PLAYER3].loadFromFile("Player3.png");
 
+	m_menuLevel[level1].loadFromFile("Level1.png");
+	m_menuLevel[level2].loadFromFile("Level2.png");
+	m_menuLevel[level3].loadFromFile("Level3.png");
+
+	m_instructionsTextures[GAME_RULES].loadFromFile("instructions.png");
+	m_instructionsTextures[STICKER].loadFromFile("Sticker.png");	
+
+
+	//game textures
+
 	m_font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 }
 
@@ -52,6 +68,12 @@ Resources& Resources::instance()
 const sf::Texture& Resources::getMenuTexture(const MenuTextures texture)const
 {
 	return m_menuTextures[texture];
+}
+
+const sf::Texture& Resources::getLevelsMenu(const MenuLevels button) const
+{
+	return m_menuLevel[button];
+
 }
 
 //tool bar font
@@ -71,12 +93,6 @@ void Resources::playSound(Sound sound)
 {
 	//m_sound.setBuffer(m_soundVector[sound]);
 	//m_sound.play();
-}
-
-//return the instruction
-sf::Texture& Resources::GetInstruction(Instructions instruction)
-{
-	return m_InstructionsTextures[instruction];
 }
 
 //

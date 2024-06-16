@@ -68,13 +68,6 @@ const GameTextures Menu::getPlayerTextures() const
 	}
 }
 
-
-//this function showes the instructions page after the press
-void Menu::displayRules()
-{
-	m_instructionsPage[GAME_RULES].setColor(sf::Color::Color(255, 255, 255, 255));
-}
-
 //adding new button to the menu
 void Menu::add(const Button button, std::unique_ptr<Command> command)
 {

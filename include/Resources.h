@@ -54,14 +54,15 @@ class Resources
 public:
 	Resources(); //private so there will be no duplicates
 	const sf::Texture& getMenuPlayer(const MenuPlayer player) const;
+	const sf::Texture& getInstruction(const Instructions instruction) const;
 	Resources(const Resources&) = default;
 	Resources& operator=(const Resources&) = default;
 	static Resources& instance(); //static so the resources will called once
-	sf::Texture& GetInstruction(Instructions);
 	const sf::Texture& getGameTexture(const GameTextures texture) const;
 	const sf::Font& getFont() const;
 
 	const sf::Texture& getMenuTexture(const MenuTextures)const;
+	const sf::Texture& getLevelsMenu(const MenuLevels button) const;
 	const sf::Texture& getButton(const Button)const;
 	void playSound(Sound);
 

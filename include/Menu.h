@@ -23,9 +23,6 @@ public:
 	void add(const Button button, std::unique_ptr<Command> command);
 	void drawMenu()const;
 	void displayRules()const;
-
-	void displayRules()const;
-
 	void action(const sf::Vector2f& location) const;
 
 	void choosePlayer(const MenuPlayer player);
