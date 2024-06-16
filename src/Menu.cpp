@@ -69,22 +69,17 @@ const GameTextures Menu::getPlayerTextures() const
 }
 
 
+//this function showes the instructions page after the press
+void Menu::displayRules()
+{
+	m_instructionsPage[GAME_RULES].setColor(sf::Color::Color(255, 255, 255, 255));
+}
+
 //adding new button to the menu
 void Menu::add(const Button button, std::unique_ptr<Command> command)
 {
 	m_options.push_back(std::make_pair(m_buttons[button], std::move(command)));
 }
-
-//this function showes the instructions page after the press
-void Menu::displayRules()const
-{
-	m_window.draw(m_background);
-	for (int inst = GAME_RULES; inst <= STICKER; inst++)
-	{
-		m_window.draw(m_instructionsPage[inst]);
-	}
-}
-
 
 
 
@@ -116,14 +111,21 @@ void Menu::choosePlayer(const MenuPlayer player)
 	m_player = player;
 }
 
-
 const sf::Sprite Menu::getPlayer(const MenuPlayer player) const
 {
 	//return the sprite
 	return m_players[player];
 }
 
-
+//this function showes the instructions page after the press
+void Menu::displayRules()const
+{
+	m_window.draw(m_background);
+	for (int inst = GAME_RULES; inst <= STICKER; inst++)
+	{
+		m_window.draw(m_instructionsPage[inst]);
+	}
+}
 
 //this function set the position 
 //this function set the position of the buttons and the title in the menu
@@ -153,15 +155,19 @@ void Menu::setPosition()
 		WINDOW_HEIGHT - m_instructionsPage[STICKER].getTextureRect().height * 1.0));
 
 	////set the title
-	m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
-	m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
-		WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
+	//m_title.setPosition(sf::Vector2f(WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.1));
+	//m_title.scale(sf::Vector2f(WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width,
+	//	WINDOW_WIDTH * 0.5 / m_title.getTextureRect().width));
 
 
 	//for players
 	m_players[PLAYER1].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.1f, WINDOW_HEIGHT / 2.5f));
 	m_players[PLAYER2].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.4f, WINDOW_HEIGHT / 2.5f));
 	m_players[PLAYER3].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.7f, WINDOW_HEIGHT / 2.5f));
+
+	m_instructionsPage[GAME_RULES].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.120f, WINDOW_HEIGHT * 0.10f));
+	m_instructionsPage[STICKER].setPosition(sf::Vector2f((WINDOW_WIDTH - m_instructionsPage[STICKER].getTextureRect().width) * 0.9,
+	WINDOW_HEIGHT - m_instructionsPage[STICKER].getTextureRect().height * 1.0));
 }
 
 ////Returns the from the array

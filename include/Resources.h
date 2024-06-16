@@ -57,9 +57,8 @@ public:
 	Resources(const Resources&) = default;
 	Resources& operator=(const Resources&) = default;
 	static Resources& instance(); //static so the resources will called once
-	const sf::Texture& getInstruction(const Instructions)const;
+	sf::Texture& GetInstruction(Instructions);
 	const sf::Texture& getGameTexture(const GameTextures texture) const;
-	const sf::Texture& getLevelsMenu(const MenuLevels button) const;
 	const sf::Font& getFont() const;
 
 	const sf::Texture& getMenuTexture(const MenuTextures)const;
