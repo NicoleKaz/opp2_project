@@ -10,6 +10,7 @@ configure_file ("Play.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Player1.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Player2.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Player3.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Player4.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Sticker.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("instructions.png" ${CMAKE_BINARY_DIR} COPYONLY)
 

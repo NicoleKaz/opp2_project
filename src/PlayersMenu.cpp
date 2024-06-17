@@ -7,15 +7,12 @@ PlayersMenu::PlayersMenu(sf::RenderWindow& window)
     m_background.setTexture(Resources::instance().getMenuTexture(menuBackground));
     m_background.scale(1.5f, 1.6f);
     
-    for (int player = PLAYER1; player <= PLAYER3;player++)
+    for (int player = PLAYER1; player <= PLAYER4;player++)
     {
         m_player[player].setTexture(Resources::instance().getMenuPlayer((MenuPlayer)player));
     }
     locateObjects();
 }
-
-
-
 
 
 void PlayersMenu::locateObjects()
@@ -30,6 +27,9 @@ void PlayersMenu::locateObjects()
     m_player[PLAYER3].setPosition(sf::Vector2f((WINDOW_WIDTH - m_player[PLAYER3].getTextureRect().width) * 0.25,
         (WINDOW_HEIGHT - m_player[PLAYER3].getTextureRect().height) * 0.75));
 
+    m_player[PLAYER4].setPosition(sf::Vector2f((WINDOW_WIDTH - m_player[PLAYER4].getTextureRect().width) * 0.75,
+        (WINDOW_HEIGHT - m_player[PLAYER3].getTextureRect().height) * 0.75));
+
     //m_player[Spectre].setPosition(sf::Vector2f((WINDOW_WIDTH - m_player[Spectre].getTextureRect().width) * 0.75,
     //    (WINDOW_HEIGHT - m_player[Spectre].getTextureRect().height) * 0.75));
 }
@@ -37,7 +37,7 @@ void PlayersMenu::locateObjects()
 void PlayersMenu::drawPlayer()const 
 {
     m_window.draw(m_background);
-    for (int player = PLAYER1; player <= PLAYER3; player++)
+    for (int player = PLAYER1; player <= PLAYER4; player++)
     {
         m_window.draw(m_player[player]);
     }

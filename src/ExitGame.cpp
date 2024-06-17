@@ -20,52 +20,6 @@ ExitGame::ExitGame(GameControler* game, sf::RenderWindow& window)
 
 void ExitGame::execute()
 {
-	// כאשר לוחצים על כפתור המשחק, הפונקציה תבצע את הפעולות הנדרשות להתחלת המשחק
 	m_game->quitGame();
-
 }
 
-
-//void PlayButton::execute()
-//{
-//    bool click = false;
-//    while (m_window.isOpen() && !click)
-//    {
-//        m_window.clear();
-//        m_levels_menu.drawLevelsMenu();
-//        m_window.display();
-//
-//        if (auto event = sf::Event{}; m_window.waitEvent(event))
-//        {
-//            switch (event.type)
-//            {
-//            case sf::Event::MouseButtonReleased:
-//            {
-//                //getting the click location, checking what button pressed
-//                const auto location = m_window.mapPixelToCoords(
-//                    { event.mouseButton.x, event.mouseButton.y });
-//                const int button = m_levels_menu.getOptionFromUser(location);
-//
-//                //performing the button action acordingly
-//                m_levels_menu.performAction(button);
-//                click = true;
-//                break;
-//            }
-//            case sf::Event::MouseMoved:
-//            {
-//                //indicate if the mouse on the buttons 
-//                const auto location = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window));
-//                m_levels_menu.handleLevelMenuMouseMoved(location);
-//                break;
-//            }
-//            case sf::Event::Closed:
-//                m_window.close();
-//                break;
-//            }
-//        }
-//        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-//        {
-//            break;
-//        }
-//    }
-//}

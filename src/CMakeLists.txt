@@ -38,4 +38,4 @@ target_sources(${CMAKE_PROJECT_NAME}
         "Player3Button.cpp"
         "../include/LevelsMenu.h"
         "LevelsMenu.cpp"
- "../include/Level2_Button.h" "../include/Level3_Button.h" "Level2_Button.cpp" "Level3_Button.cpp")
+ "../include/Level2_Button.h" "../include/Level3_Button.h" "Level2_Button.cpp" "Level3_Button.cpp" "Player4Button.cpp")

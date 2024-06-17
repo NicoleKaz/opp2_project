@@ -15,14 +15,14 @@ enum Sound { CLICK, MINUS_LIFE, EAT, CLOCK_SOUND, DOOR_SOUND, FREEZE_SOUND, KEY_
 enum Music { SONG, SECOND_END };
 enum Object { MOUSE, KEY, WALL, DOOR, CHEESE, PRESENT, ADD_LIFE, FREEZE, ADD_TIME };
 enum MenuTextures { menuBackground, Title};
-enum MenuPlayer { PLAYER1, PLAYER2, PLAYER3};
+enum MenuPlayer { PLAYER1, PLAYER2, PLAYER3, PLAYER4};
 enum MenuLevels { level1, level2, level3};
 
 
 
 
 enum GameTextures {
-	Floor, Level_Background, First_Player, Second_Player, Third_Player, PlayerBox4, PlayerBox5, PlayerBox6,
+	Floor, Level_Background, First_Player, Second_Player, Third_Player, Foutrh_Player, PlayerBox4, PlayerBox5, PlayerBox6,
 	PlayerShip1, PlayerShip2, PlayerShip3, PlayerShip4, PlayerShip5, PlayerShip6, Spike1, Spike2, Spikes,
 	Coin, Cube1, Cube2, CubeCube, Gate1, Gate2, Gate3, Gate4, Gate5, Jumper1, Jumper2, Rectangle,
 	Enemy1SpriteSheet, Enemy2SpriteSheet, Enemy1, Enemy2, ScoreBoard
@@ -32,7 +32,7 @@ enum GameTextures {
 //consts
 const int LEVEL_MENU = 3;
 const int MENU_BUTTONS = 5;
-const int MENU_PLAYER = 3;
+const int MENU_PLAYER = 4;
 const int INSTRUCTIONS = 2;
 const int GAME_OBJECTS = 9;
 const int TOOL_BAR = 5;

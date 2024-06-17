@@ -25,6 +25,10 @@ void HelpButton::execute()
                 return;
             }
         }
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            return;
+        }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         {
             return;

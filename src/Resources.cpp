@@ -41,8 +41,9 @@ void Resources::loadTextures()
 	m_menuButton[EXIT].loadFromFile("Exit.png");
 
 	m_menuPlayers[PLAYER1].loadFromFile("Player1.png");
-	m_menuPlayers[PLAYER2].loadFromFile("Player2.png");;
+	m_menuPlayers[PLAYER2].loadFromFile("Player2.png");
 	m_menuPlayers[PLAYER3].loadFromFile("Player3.png");
+	m_menuPlayers[PLAYER4].loadFromFile("Player4.png");
 
 	m_menuLevel[level1].loadFromFile("Level1.png");
 	//m_menuLevel[level2].loadFromFile("Level2.png");
