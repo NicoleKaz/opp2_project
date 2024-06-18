@@ -20,18 +20,16 @@ void Board::switchPlayer(const GameTextures player_textures)
 
 
 //This function draws the board
-void Board::drawBoard(sf::RenderWindow& window)
+void Board::drawBoard()
 {
-	//Delete everything that was in the window until now
-	window.clear(sf::Color::Color(210, 210, 210));
-	//Draw 
-	//for (int stick = 0; stick < m_stick.size(); stick++)
-	//{
-	//	window.draw(m_stick[stick]->getrec());
-	//}
-	////Draw the franme of the buttons
-	//for (int rectangle = 0; rectangle < 4; rectangle++)
-	//{
-	//	window.draw(m_grid_frame[rectangle]);
-	//}
+	m_window.draw(m_background);
+	//m_window.draw(m_player->getSprite());
+	for (auto& object : m_moving_objects)
+	{
+		object->draw(m_window);
+	}
+	for (auto& object : m_static_objects)
+	{
+		object->draw(m_window);
+	}
 }

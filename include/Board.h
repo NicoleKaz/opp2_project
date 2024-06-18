@@ -22,7 +22,7 @@ public:
     Board(sf::RenderWindow&, const GameTextures);
     void switchPlayer(const GameTextures player_textures);
     //void drawBoard() const;
-    void drawBoard(sf::RenderWindow&);
+    void drawBoard();
     void moveObjects();
     const b2Vec2 getPlayerPosition() const;
     void viewBackground(const float addition);
@@ -46,8 +46,8 @@ private:
     GameTextures m_player_textures;
 
     //game objects:
-    //std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;
-    //std::vector < std::unique_ptr< StaticObject>>  m_static_objects;
+    std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;
+    std::vector < std::unique_ptr< StaticObject>>  m_static_objects;
 
     sf::Sprite m_background;
     //Player* m_player = nullptr;
