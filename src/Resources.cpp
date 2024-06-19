@@ -24,6 +24,11 @@ const sf::Texture& Resources::getInstruction(const Instructions instruction)cons
 //}
 
 
+const sf::Image& Resources::getMap(const GameMaps map) const
+{
+	return m_maps[map];
+}
+
 //loading all the textures
 void Resources::loadTextures()
 {

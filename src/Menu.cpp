@@ -142,8 +142,10 @@ void Menu::setPosition()
 	m_buttons[SCORE_TABLE].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[SCORE_TABLE].getTextureRect().width) * 0.5,
 		WINDOW_HEIGHT - m_buttons[SCORE_TABLE].getTextureRect().height * 2));
 
-	m_buttons[EXIT].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[EXIT].getTextureRect().width) * 0.75,
-		WINDOW_HEIGHT - m_buttons[EXIT].getTextureRect().height * 2));
+	m_buttons[EXIT].setPosition(sf::Vector2f((WINDOW_WIDTH - m_buttons[EXIT].getTextureRect().width) * 1,
+		WINDOW_HEIGHT - m_buttons[EXIT].getTextureRect().height * 1));
+	
+
 
 	m_instructionsPage[GAME_RULES].setPosition(sf::Vector2f(WINDOW_WIDTH * 0.120f, WINDOW_HEIGHT * 0.10f));
 	m_instructionsPage[STICKER].setPosition(sf::Vector2f((WINDOW_WIDTH - m_instructionsPage[STICKER].getTextureRect().width) * 0.9,

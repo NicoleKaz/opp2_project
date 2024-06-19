@@ -23,6 +23,9 @@ public:
     void switchPlayer(const GameTextures player_textures);
     //void drawBoard() const;
     void drawBoard();
+    void createLevel(const GameMaps level/*, const GameSounds sound*/);
+    void findObjectColor(const sf::Color& color, const sf::Vector2f& location);
+    void addFloor(const sf::Vector2f& location);
     void moveObjects();
     const b2Vec2 getPlayerPosition() const;
     void viewBackground(const float addition);
@@ -46,7 +49,7 @@ private:
     GameTextures m_player_textures;
 
     //game objects:
-    std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;
+   // std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;
     std::vector < std::unique_ptr< StaticObject>>  m_static_objects;
 
     sf::Sprite m_background;
@@ -55,4 +58,6 @@ private:
     //MyContactListener m_contact;
     bool m_win = false;
 //    sf::Sound m_game_song;
+     sf::Image& m_source;
+
 };

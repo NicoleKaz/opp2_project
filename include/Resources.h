@@ -17,6 +17,8 @@ enum Object { MOUSE, KEY, WALL, DOOR, CHEESE, PRESENT, ADD_LIFE, FREEZE, ADD_TIM
 enum MenuTextures { menuBackground, Title};
 enum MenuPlayer { PLAYER1, PLAYER2, PLAYER3, PLAYER4};
 enum MenuLevels { level1, level2, level3};
+enum GameMaps { Map1, Map2, Map3};
+
 
 
 
@@ -40,6 +42,7 @@ const int SOUNDS = 10;
 const int MUSIC = 2;
 const float SPRITE_SIZE = 400.f;
 const int MENU_TEXTURES = 2;
+const int GAME_MAPS = 3;
 
 const int GAME_TEXTURES = 34;
 
@@ -64,6 +67,8 @@ public:
 	const sf::Texture& getMenuTexture(const MenuTextures)const;
 	const sf::Texture& getLevelsMenu(const MenuLevels button) const;
 	const sf::Texture& getButton(const Button)const;
+	const sf::Image& getMap(const GameMaps map) const;
+
 	void playSound(Sound);
 
 private:
@@ -79,6 +84,8 @@ private:
 	std::vector<sf::Texture> m_MenuTexture;
 
 	sf::Font m_font;
+	sf::Image m_maps[GAME_MAPS];
+
 	sf::CircleShape player;
 	//sf::Sound m_sound;
 //	sf::Music m_music;
