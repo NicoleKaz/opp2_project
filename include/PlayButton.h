@@ -4,13 +4,13 @@
 #include <LevelsMenu.h>
 //#include "LevelsMenu.h"
 
-class GameControler;
+class Controller;
 
 class PlayButton : public Command 
 {
 public:
 
-	PlayButton(GameControler* game, sf::RenderWindow& window);
+	PlayButton(Controller* game, sf::RenderWindow& window);
 	void execute() override;
 
 private:

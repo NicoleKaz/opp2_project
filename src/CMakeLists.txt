@@ -3,8 +3,8 @@
 target_sources(${CMAKE_PROJECT_NAME}
     PRIVATE
         ${MY_SOURCE_FILES}
-        "../include/GameControler.h"
-        "GameControler.cpp"
+        "../include/Controller.h"
+        "Controller.cpp"
         "../include/Menu.h"
         "Resources.cpp"
         "../include/Resources.h"
@@ -25,7 +25,7 @@ target_sources(${CMAKE_PROJECT_NAME}
         "../include/Menu.h"
         "Menu.cpp"
         "../include/Resources.h"
-        "../include/GameControler.h"
+        "../include/Controller.h"
         "SwitchPlayerButton.cpp"
         "Choose_LevelButton.cpp"
         "../include/Player1Button.h"

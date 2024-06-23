@@ -3,13 +3,13 @@
 //#include "Command.h"
 //#include <LevelsMenu.h>
 //
-//class GameControler;
+//class Controller;
 //
 //class Choose_LevelButton : public Command
 //{
 //public:
 //
-//	Choose_LevelButton(GameControler* game, sf::RenderWindow& window);
+//	Choose_LevelButton(Controller* game, sf::RenderWindow& window);
 //	void execute() override;
 //
 //private:

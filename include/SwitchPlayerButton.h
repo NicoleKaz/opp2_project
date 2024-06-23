@@ -7,7 +7,7 @@
 class SwitchPlayerButton : public Command 
 {
 public:
-    SwitchPlayerButton(GameControler* game, sf::RenderWindow& window);
+    SwitchPlayerButton(Controller* game, sf::RenderWindow& window);
     void execute()override;
 
 private:

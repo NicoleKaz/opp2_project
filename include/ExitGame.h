@@ -5,18 +5,18 @@
 
 //#include "LevelsMenu.h"
 
-class GameControler;
+class Controller;
 
 class ExitGame : public Command
 {
 public:
 
-	ExitGame(GameControler* game, sf::RenderWindow& window);
+	ExitGame(Controller* game, sf::RenderWindow& window);
 
 	void execute() override;
 
 private:
 	//LevelsMenu m_levels_menu;
-	GameControler* m_game;
+	Controller* m_game;
 	//sf::RenderWindow& m_window;
 };

@@ -1,13 +1,13 @@
 #pragma once
 
 #include "PlayButton.h"
-#include "GameControler.h"
+#include "Controller.h"
 #include <Level1_Button.h>
 #include <Level2_Button.h>
 #include <Level3_Button.h>
 
 
-PlayButton::PlayButton(GameControler* game, sf::RenderWindow& window)
+PlayButton::PlayButton(Controller* game, sf::RenderWindow& window)
 	:Command(game, window), m_levelsMenu(m_game, m_window)
 {
 	//adding buttons to the submenu

@@ -1,14 +1,14 @@
 #pragma once
 
 #include "ExitGame.h"
-#include "GameControler.h"
+#include "Controller.h"
 //#include "WithoutYouButton.h"
 //#include "GreyhoundButton.h"
 //#include "OnlyTheHorsesButton.h"
 //#include "SpectreButton.h"
 
 
-ExitGame::ExitGame(GameControler* game, sf::RenderWindow& window)
+ExitGame::ExitGame(Controller* game, sf::RenderWindow& window)
 	:Command(game, window)
 {
 	//adding buttons to the submenu

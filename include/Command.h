@@ -4,17 +4,17 @@
 //#include <SFML/Audio.hpp>
 #include <Resources.h>
 
-class GameControler;
+class Controller;
 
 class Command
 {
 public:
-	Command(GameControler*, sf::RenderWindow&);
+	Command(Controller*, sf::RenderWindow&);
 	virtual ~Command() = default;
 	virtual void execute() = 0;
 
 protected:
-	GameControler* m_game;
+	Controller* m_game;
 	sf::RenderWindow& m_window;
 	
 };

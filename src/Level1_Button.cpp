@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Level1_Button.h"
-#include "GameControler.h"
+#include "Controller.h"
 
-Level1_Button::Level1_Button(GameControler* game, sf::RenderWindow& window)
+Level1_Button::Level1_Button(Controller* game, sf::RenderWindow& window)
 	:Command(game, window)
 {
 }

@@ -3,18 +3,18 @@
 #include "Command.h"
 //#include "LevelsMenu.h"
 
-class GameControler;
+class Controller;
 
 class ScoreTableButton : public Command
 {
 public:
 
-	ScoreTableButton(GameControler* game, sf::RenderWindow& window);
+	ScoreTableButton(Controller* game, sf::RenderWindow& window);
 
 	void execute() override;
 
 private:
 	//LevelsMenu m_levels_menu;
-	GameControler* m_game;
+	Controller* m_game;
 	//sf::RenderWindow& m_window;
 };

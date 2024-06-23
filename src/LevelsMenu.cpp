@@ -2,7 +2,7 @@
 
 #include "LevelsMenu.h"
 
-LevelsMenu::LevelsMenu(GameControler* game, sf::RenderWindow& window)
+LevelsMenu::LevelsMenu(Controller* game, sf::RenderWindow& window)
 	: m_game(game), m_window(window)
 {
 	m_background.setTexture(Resources::instance().getMenuTexture(menuBackground));

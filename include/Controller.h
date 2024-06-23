@@ -16,10 +16,10 @@
 #include "Menu.h"
 
 
-class GameControler
+class Controller
 {
 public:
-	GameControler();
+	Controller();
 	void run();
 
 	void handleSwitchPlayer(const sf::Vector2f location);

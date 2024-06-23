@@ -1,4 +1,4 @@
-#include "GameControler.h"
+#include "Controller.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -8,7 +8,7 @@ int main()
 {
     try
     {
-        GameControler game;
+        Controller game;
         game.run();
     }
     catch (std::exception& e)

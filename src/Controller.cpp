@@ -1,11 +1,11 @@
-#include "GameControler.h"
+#include "Controller.h"
 #include <thread>
 #include <chrono>
 #include <iostream>
 
 
 
-GameControler::GameControler()
+Controller::Controller()
     :m_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Geometry Dash"),
     m_menu(m_window),
     m_board(m_window, m_menu.getPlayerTextures())
@@ -27,7 +27,7 @@ GameControler::GameControler()
 
 
 //this function is the game loop
-void GameControler::run()
+void Controller::run()
 {
     m_GameClock.restart();
     while (m_window.isOpen())
@@ -71,7 +71,7 @@ void GameControler::run()
 }
 
 
-void GameControler::handleSwitchPlayer(const sf::Vector2f location)
+void Controller::handleSwitchPlayer(const sf::Vector2f location)
 {
 	//loop to go over the buttons
 	for (int player = PLAYER1; player <= PLAYER3; player++)
@@ -85,7 +85,7 @@ void GameControler::handleSwitchPlayer(const sf::Vector2f location)
 	}            
 }
 
-void GameControler::handleSwitchPlayerMouseMoved(const sf::Vector2f location)
+void Controller::handleSwitchPlayerMouseMoved(const sf::Vector2f location)
 {
 	//loop to go over the buttons
     for (int player = PLAYER1; player <= PLAYER3; player++)
@@ -103,13 +103,13 @@ void GameControler::handleSwitchPlayerMouseMoved(const sf::Vector2f location)
 
 }
 
-Board& GameControler::getBoard()
+Board& Controller::getBoard()
 {
     return m_board;
 }
 
 //This function checks whether one of the buttons in menu has been pressed
-void GameControler::handleMenuMouseMoved(const sf::Vector2f location)
+void Controller::handleMenuMouseMoved(const sf::Vector2f location)
 {
     //loop to go over the buttons
     for (int player = PLAY; player <= EXIT; player++)
@@ -128,7 +128,7 @@ void GameControler::handleMenuMouseMoved(const sf::Vector2f location)
 
 
 //This function performs the action that is called after the user clicks one of the buttons in the menu
-void GameControler::handleClick(const sf::Vector2f location)
+void Controller::handleClick(const sf::Vector2f location)
 {
     //start the game
     if (m_menu.getButton(PLAY).getGlobalBounds().contains(location))
@@ -147,7 +147,7 @@ void GameControler::handleClick(const sf::Vector2f location)
     }
 }
 
-void GameControler::startGame()
+void Controller::startGame()
 {
 //    //As long as the user did not exit the game, this loop ran
 //    while (m_window.isOpen() /*&& !m_game_over*/)
@@ -199,26 +199,26 @@ void GameControler::startGame()
 //    }
 }
 
-Menu& GameControler::getMenu()
+Menu& Controller::getMenu()
 {
     return m_menu;
 }
 
-void GameControler::helpGame()
+void Controller::helpGame()
 {
 
 }
 
-void GameControler::SwitchPlayer()
+void Controller::SwitchPlayer()
 {
 }
 
-void GameControler::quitGame()
+void Controller::quitGame()
 {
     m_window.close();
 }
 
-void GameControler::chooseLevel()
+void Controller::chooseLevel()
 {
 }
 

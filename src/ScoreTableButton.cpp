@@ -1,14 +1,14 @@
 #pragma once
 
 #include "ScoreTableButton.h"
-#include "GameControler.h"
+#include "Controller.h"
 //#include "WithoutYouButton.h"
 //#include "GreyhoundButton.h"
 //#include "OnlyTheHorsesButton.h"
 //#include "SpectreButton.h"
 
 
-ScoreTableButton::ScoreTableButton(GameControler* game, sf::RenderWindow& window)
+ScoreTableButton::ScoreTableButton(Controller* game, sf::RenderWindow& window)
 	:Command(game, window)
 {
 	//adding buttons to the submenu

@@ -2,12 +2,12 @@
 
 #include "Command.h"
 
-class GameControler;
+class Controller;
 
 class Level3_Button : public Command
 {
 public:
-	Level3_Button(GameControler*, sf::RenderWindow&);
+	Level3_Button(Controller*, sf::RenderWindow&);
 	virtual void execute() override;
 
 private:

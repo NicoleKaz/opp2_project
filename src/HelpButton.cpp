@@ -1,10 +1,10 @@
 #include "HelpButton.h"
-#include "GameControler.h"
+#include "Controller.h"
 #include <iostream>
 
 
 
-HelpButton::HelpButton(GameControler* game, sf::RenderWindow& window)
+HelpButton::HelpButton(Controller* game, sf::RenderWindow& window)
     : Command(game, window) {
 }
 

@@ -1,7 +1,7 @@
 #include "Player1Button.h"
-#include "GameControler.h"
+#include "Controller.h"
 
-Player1Button::Player1Button(GameControler* game, sf::RenderWindow& window)
+Player1Button::Player1Button(Controller* game, sf::RenderWindow& window)
     : Command(game, window)
 {
 }

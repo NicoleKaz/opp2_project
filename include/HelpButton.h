@@ -5,19 +5,19 @@
 
 //#include "LevelsMenu.h"
 
-class GameControler;
+class Controller;
 
 class HelpButton : public Command
 {
 public:
 
-	HelpButton(GameControler* game, sf::RenderWindow& window);
+	HelpButton(Controller* game, sf::RenderWindow& window);
 
 	void execute() override;
 
 private:
 	//LevelsMenu m_levels_menu;
-	//GameControler* m_game;
+	//Controller* m_game;
 	//sf::RenderWindow& m_window;
 };
 

@@ -1,7 +1,7 @@
 //#pragma once
 //
 //#include "Choose_LevelButton.h"
-//#include "GameControler.h"
+//#include "Controller.h"
 //#include "Level1_Button.h"
 //#include "Level2_Button.h"
 //#include "Level3_Button.h"
@@ -10,7 +10,7 @@
 ////#include "SpectreButton.h"
 //
 //
-//Choose_LevelButton::Choose_LevelButton(GameControler* game, sf::RenderWindow& window)
+//Choose_LevelButton::Choose_LevelButton(Controller* game, sf::RenderWindow& window)
 //	:Command(game, window), m_levelsMenu(m_game, m_window)
 //{
 //    m_background.setTexture(Resources::instance().getMenuTexture(menuBackground));

@@ -3,7 +3,7 @@
 #include "Player2Button.h"
 #include "Player3Button.h"
 
-SwitchPlayerButton::SwitchPlayerButton(GameControler* game, sf::RenderWindow& window)
+SwitchPlayerButton::SwitchPlayerButton(Controller* game, sf::RenderWindow& window)
     : Command(game, window), m_playerMenu(window)
 {
     // Add player selection commands to the player menu

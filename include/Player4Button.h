@@ -2,12 +2,12 @@
 
 #include "Command.h"
 
-class GameControler;
+class Controller;
 
 
 class Player4Button : public Command
 {
 public:
-    Player4Button(GameControler* game, sf::RenderWindow& window);
+    Player4Button(Controller* game, sf::RenderWindow& window);
     void execute() override;
 };
