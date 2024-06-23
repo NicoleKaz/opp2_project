@@ -50,7 +50,7 @@ private:
 
     //game objects:
    // std::vector < std::unique_ptr< MovingObject>>  m_moving_objects;
-    std::vector < std::unique_ptr< StaticObject>>  m_static_objects;
+//    std::vector < std::unique_ptr< StaticObject>>  m_static_objects;
 
     sf::Sprite m_background;
     //Player* m_player = nullptr;
@@ -58,6 +58,6 @@ private:
     //MyContactListener m_contact;
     bool m_win = false;
 //    sf::Sound m_game_song;
-     sf::Image& m_source;
+     //sf::Image& m_source;
 
 };

@@ -35,51 +35,51 @@ void Board::drawBoard()
 	//}
 }
 
-void Board::createLevel(const GameMaps level/*, const GameSounds sound*/)
-{
-	m_source = Resources::instance().getMap(level);
-	for (size_t y = 0; y < m_source.getSize().y; ++y)
-	{
-		for (size_t x = 0; x < m_source.getSize().x; ++x)
-		{
-			// The object location according to the pixel location
-			const sf::Vector2f location(50 * x + 25, 50 * y + 25);
-
-			// Get the pixel color
-			sf::Color color = m_source.getPixel(x, y);
-
-			// Create the corresponding object
-			findObjectColor(color, location);
-		}
-	}
-}
-
-void Board::findObjectColor(const sf::Color& color, const sf::Vector2f& location)
-{
-	if (color == sf::Color::White) 
-	{
-		return;
-	}
-
-	else if (color == sf::Color::Black) 
-	{
-		addFloor(location);
-	}
-
-	else if (color == sf::Color::Cyan)
-	{
-		// Create a blue object (e.g., an enemy)
-		// Example: addEnemy(location);
-	}
-	else if (color == sf::Color(173, 216, 230))
-	{	
-		addPlayer(location);
-	}
-}
-
-void Board::addFloor(const sf::Vector2f& location)
-{
-	m_static_objects.push_back(Factory<StaticObject>::createObject(source.getPixel(x, y), m_world, location));
-
-}
+//void Board::createLevel(const GameMaps level/*, const GameSounds sound*/)
+//{
+//	m_source = Resources::instance().getMap(level);
+//	for (size_t y = 0; y < m_source.getSize().y; ++y)
+//	{
+//		for (size_t x = 0; x < m_source.getSize().x; ++x)
+//		{
+//			// The object location according to the pixel location
+//			const sf::Vector2f location(50 * x + 25, 50 * y + 25);
+//
+//			// Get the pixel color
+//			sf::Color color = m_source.getPixel(x, y);
+//
+//			// Create the corresponding object
+//			findObjectColor(color, location);
+//		}
+//	}
+//}
+//
+//void Board::findObjectColor(const sf::Color& color, const sf::Vector2f& location)
+//{
+//	if (color == sf::Color::White) 
+//	{
+//		return;
+//	}
+//
+//	else if (color == sf::Color::Black) 
+//	{
+//		addFloor(location);
+//	}
+//
+//	else if (color == sf::Color::Cyan)
+//	{
+//		// Create a blue object (e.g., an enemy)
+//		// Example: addEnemy(location);
+//	}
+//	else if (color == sf::Color(173, 216, 230))
+//	{	
+//		addPlayer(location);
+//	}
+//}
+//
+//void Board::addFloor(const sf::Vector2f& location)
+//{
+//	m_static_objects.push_back(Factory<StaticObject>::createObject(source.getPixel(x, y), m_world, location));
+//
+//}
 
