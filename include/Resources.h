@@ -18,6 +18,8 @@ enum MenuTextures { menuBackground, Title};
 enum MenuPlayer { PLAYER1, PLAYER2, PLAYER3, PLAYER4};
 enum MenuLevels { level1, level2, level3};
 enum GameMaps { Map1, Map2, Map3};
+enum GameAnimations { Enemy1Animation, Enemy2Animation };
+
 
 
 
@@ -45,6 +47,8 @@ const int MENU_TEXTURES = 2;
 const int GAME_MAPS = 3;
 
 const int GAME_TEXTURES = 34;
+
+const sf::Color CUBE1_COLOR = sf::Color(63, 72, 204);
 
 
 //window

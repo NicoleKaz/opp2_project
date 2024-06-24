@@ -50,6 +50,11 @@ void Resources::loadTextures()
 	m_menuPlayers[PLAYER3].loadFromFile("Player3.png");
 	m_menuPlayers[PLAYER4].loadFromFile("Player4.png");
 
+
+	//game image
+	m_maps[Map1].loadFromFile("Map1.png");
+
+
 	m_menuLevel[level1].loadFromFile("Level1.png");
 	//m_menuLevel[level2].loadFromFile("Level2.png");
 	//m_menuLevel[level3].loadFromFile("Level3.png");

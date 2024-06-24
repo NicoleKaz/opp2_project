@@ -64,12 +64,14 @@ void LevelsMenu::action(const sf::Vector2f& location)const
 	//check if the button contains the click location
 	 for (int button = level1; button < m_options.size(); button++)
 	 {
+
 		 if (m_options[button].first.getGlobalBounds().contains(location))
 		 {
 		//perform the button action
 		 m_options[button].second->execute();
 		 return;
 		 }
+
 	 }
 }
 

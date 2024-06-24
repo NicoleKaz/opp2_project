@@ -57,7 +57,8 @@ private:
 	void handleMenuMouseMoved(const sf::Vector2f);
 	void handleClick(const sf::Vector2f);
 
-	//bool m_game_over = false;
+
+	bool m_game_over = false;
 	//sf::Clock m_game_clock;
 	////private functions
 	//void setView();

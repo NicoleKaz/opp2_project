@@ -1,10 +1,12 @@
-//#include "StaticObject.h"
-//
-//StaticObject::StaticObject(b2World&, const GameTextures, const sf::Vector2f)
-//{
-//
-//}
-//
-//StaticObject::~StaticObject()
-//{
-//}
+#include "StaticObject.h"
+
+StaticObject::StaticObject(b2World& world, const GameTextures texture, const sf::Vector2f location)
+    :GameObject(texture, location), m_type(texture)
+
+{
+
+}
+
+StaticObject::~StaticObject()
+{
+}

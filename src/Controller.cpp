@@ -29,6 +29,7 @@ Controller::Controller()
 //this function is the game loop
 void Controller::run()
 {
+	std::cout << "run" << std::endl;
     m_GameClock.restart();
     while (m_window.isOpen())
     {
@@ -127,76 +128,58 @@ void Controller::handleMenuMouseMoved(const sf::Vector2f location)
 }
 
 
-//This function performs the action that is called after the user clicks one of the buttons in the menu
-void Controller::handleClick(const sf::Vector2f location)
-{
-    //start the game
-    if (m_menu.getButton(PLAY).getGlobalBounds().contains(location))
-    {
-        //rest the clocks
-        //m_MoveClock.restart();
-        //open the game window
-        //init();
-        m_GameClock.restart();
-        startGame();
-    }
-    //exit the game
-    if (m_menu.getButton(EXIT).getGlobalBounds().contains(location))
-    {
-        m_window.close();
-    }
-}
-
 void Controller::startGame()
 {
-//    //As long as the user did not exit the game, this loop ran
-//    while (m_window.isOpen() /*&& !m_game_over*/)
-//    {
-//		//The game window is cleared
-//        m_window.clear(sf::Color::Color(0, 0, 0));
-//        m_window.setView(m_gameView);
-//        //Drawing the game board
-//        m_board.drawBoard();
-//		m_window.display();
-//
-//        for (auto event = sf::Event{}; m_window.pollEvent(event); )
-//        {
-//            switch (event.type)
-//            {
-//            case sf::Event::Closed:
-//            {
-//                m_window.close();
-//                break;
-//            }
-//            case sf::Event::KeyReleased:
-//            {
-//                //update the player direction
-//                if (event.key.code == sf::Keyboard::Right)
-//                {
-//                    m_board.rightReleased();
-//                }
-//                else if (event.key.code == sf::Keyboard::Left)
-//                {
-//                    m_board.leftReleased();
-//                }
-//                else if (event.key.code == sf::Keyboard::Space)
-//                {
-//                    m_board.spaceReleased();
-//                }
-//                else if (event.key.code == sf::Keyboard::Escape)
-//                {
-//                    //m_game_over = true;
-//                }
-//                break;
-//            }
-//            }
-//        }
-//        //Exit the game
-//        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-//        {
-//            m_window.close();
-//        }
-//    }
+	m_game_over = false;    
+
+    //As long as the user did not exit the game, this loop ran
+    while (m_window.isOpen() && !m_game_over)
+    {
+		//The game window is cleared
+        m_window.clear(sf::Color::Color(0, 102, 102));
+        m_window.setView(m_gameView);
+        //Drawing the game board
+        m_board.drawBoard();
+		m_window.display();
+
+        for (auto event = sf::Event{}; m_window.pollEvent(event); )
+        {
+            switch (event.type)
+            {
+            case sf::Event::Closed:
+            {
+                m_window.close();
+                break;
+            }
+            //case sf::Event::KeyReleased:
+            //{
+            //    //update the player direction
+            //    if (event.key.code == sf::Keyboard::Right)
+            //    {
+            //        m_board.rightReleased();
+            //    }
+            //    else if (event.key.code == sf::Keyboard::Left)
+            //    {
+            //        m_board.leftReleased();
+            //    }
+            //    else if (event.key.code == sf::Keyboard::Space)
+            //    {
+            //        m_board.spaceReleased();
+            //    }
+            //    else if (event.key.code == sf::Keyboard::Escape)
+            //    {
+            //        //m_game_over = true;
+            //    }
+            //    break;
+            //}
+            }
+        }
+        ////Exit the game
+        //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        //{
+        //    m_window.close();
+        //}
+    }
 }
 
 Menu& Controller::getMenu()
